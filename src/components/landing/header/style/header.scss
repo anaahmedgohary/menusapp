@@ -1,0 +1,71 @@
+// @import "~bootstrap/scss/bootstrap";
+@mixin flexCenters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexSpaceAround{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.home-title{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    &:hover {
+            color: red;
+        }
+    h1{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: azure;
+    }
+}
+
+.small-nav{
+    @include flexSpaceAround;
+
+    li{
+        @include flexCenters;
+        font-size: clamp(0.2rem, 1vw, 2.2vw);
+        padding: 02%;
+        &:hover{
+            background-color: lightblue;
+            cursor: pointer;
+        }
+    }
+}
+
+.main-nav01{
+    background-color: rgb(138, 138, 202);
+    border: solid;
+    padding: 10%;
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        li{
+            @include flexCenters;
+            flex-wrap: wrap;
+            color: antiquewhite;
+            text-decoration: none;
+            text-align: center;
+            // border: antiquewhite solid;
+            border-radius: 10%;
+            padding: 2%;
+            
+            font-size: clamp(0.2rem,1vw,2.2vw);
+            font-weight: 400;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            &:hover{
+                background-color: rgba(106, 142, 35, 0.6);
+                cursor: pointer;
+                padding: 2%;
+            }
+
+        }
+    }
+}

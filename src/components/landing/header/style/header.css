@@ -1,0 +1,60 @@
+.home-title {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.home-title:hover {
+  color: red;
+}
+.home-title h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: azure;
+}
+
+.small-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.small-nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(0.2rem, 1vw, 2.2vw);
+  padding: 2%;
+}
+.small-nav li:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.main-nav01 {
+  background-color: rgb(138, 138, 202);
+  border: solid;
+  padding: 10%;
+}
+.main-nav01 ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main-nav01 ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: antiquewhite;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10%;
+  padding: 2%;
+  font-size: clamp(0.2rem, 1vw, 2.2vw);
+  font-weight: 400;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.main-nav01 ul li:hover {
+  background-color: rgba(106, 142, 35, 0.6);
+  cursor: pointer;
+  padding: 2%;
+}/*# sourceMappingURL=header.css.map */
