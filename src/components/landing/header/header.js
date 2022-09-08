@@ -5,11 +5,11 @@ import "./style/header.css";
 function LandingHeader() {
   return (
     <div className="container">
-      <h3 className="home-title">
+      <div className="home-title">
         <a title="Homepage" href="./">
-          Menus Zagazig
+          <img src="./images/home.png" alt="Homepage" />
         </a>
-      </h3>
+      </div>
       <ul>
         <li></li>
       </ul>
@@ -20,10 +20,10 @@ function LandingHeader() {
             <img className='nav-img' src="./images/facebook.png" alt="facebook logo" />
           </a>
           <a href='https://www.instagram.com' target="_blank" rel='noreferrer'>
-            <img className='nav-img' src="./images/instagram.png" alt="instagram logo" />
+            <img className='nav-img' src="./images/instagramlogo.png" alt="instagram logo" />
           </a>
           <a href='https://www.tiktok.com' target="_blank" rel='noreferrer'>
-            <img className='nav-img' src="./images/tiktok.png" alt="tiktok logo" />
+            <img className='nav-img' src="./images/tiktok2.png" alt="tiktok logo" />
           </a>
         </div>
         <li><a href="./reviews">Reviews</a></li>
@@ -38,6 +38,13 @@ function LandingHeader() {
           <li><a href="fastfood">Fast Food</a></li>
         </ul>
       </nav>
+
+      <div className='tube-div'></div>
+      <div className='tube-div'></div>
+      <div className='tube-div'></div>
+      <div className='tube-div'></div>
+
+
     </div>
   );
 }
