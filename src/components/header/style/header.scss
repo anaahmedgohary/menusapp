@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 // @import "~bootstrap/scss/bootstrap";
 @mixin flexCenters {
     display: flex;
@@ -34,11 +37,14 @@ $guccired01: rgba(168, 43, 17, 0.2);
         img{
             width: 2.5vw;
             height: 2.5vw;
+            
+            
             transition: 1500ms;
-            transform: translateX(20%);
+            
             &:hover {
                     text-decoration: underline;
                     transform: rotate(-90deg);
+                    //transform: translateX(50vw);
                     transition: 600ms;
                 }
         }
@@ -57,7 +63,8 @@ $guccired01: rgba(168, 43, 17, 0.2);
 
 .small-nav{
     @include flexStart();
-     background-color: rgba(0, 50, 110, 0.3);
+     background-color: rgba(141, 123, 90, 0.04);
+     border-radius: 50px 50px;
 
     li{
         @include flexCenters();
@@ -66,20 +73,24 @@ $guccired01: rgba(168, 43, 17, 0.2);
         font-family: 'Times New Roman', Times, serif;
         padding: 01%;
         transition: 500ms;
+        text-decoration: overline 3px;
         &:hover{
+            text-decoration: none;
             background-color: lightblue;
             cursor: pointer;
+            transition: 500ms;
             
         }
         a{
             text-decoration: none;
-            color: darkolivegreen;
+            color: rgba(0, 0, 0, 0.733);
         }
     }
     .nav-img-div{
         display: flex;
         justify-content: left;
         width: 70%;
+        background-color: transparent;
         a{
             @include flexCenters();
             margin: 0 4% 0 0%;
@@ -104,26 +115,36 @@ $guccired01: rgba(168, 43, 17, 0.2);
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        padding: 0% 20%;
+        padding: 0% 10% 0% 10%;
         li{
             @include flexCenters;
-            flex-wrap: wrap;
-            text-align: center;
+            
+            
             // border: antiquewhite solid;
-            border-radius: 10%;
-            padding: 2%;
-            transition: 500ms;
+            
+            
+            
             font-size: clamp(0.2rem,1.2vw,2vw);
             font-weight: 400;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            &:hover{
-                background-color: rgba(106, 142, 35, 0.6);
-                cursor: pointer;
-                padding: 2%;
-            }
+            
             a{
+                display: flex;
+                justify-content: center;
                 text-decoration: none;
                 color: antiquewhite;
+                padding: 10% 0% 10% 0%;
+                border-radius: 40px 40px;
+                transition: 699ms;
+                background-color: black;
+                width: 8vw;
+                text-align: center;
+                &:hover {
+                        background-color: rgb(85, 107, 47);
+                        cursor: pointer;
+                
+                        
+                    }
             }
 
         }
@@ -131,13 +152,57 @@ $guccired01: rgba(168, 43, 17, 0.2);
 }
 
 .tube-div{
+    @include flexCenters();
     background-color: antiquewhite;
-    width: 150px;
-    height: 50px;
-    
+    min-width: 60px;
+    width: 14vw;
+    height: clamp(2vw,3vw,5vw);
+    text-align: center;
     //border-bottom-right-radius: 50%;
     //border-top-right-radius: 50%;
-    border: 5px solid greenyellow;
-    border-radius: 100px 100px 100px 100px;
-    //padding-top: 05%;
+    border: 1px solid;
+    border-radius: 40px 40px;
+    padding: 1% 1%;
+
+    #searchInput{
+        width: 70%;
+        height: clamp(1.6vw,2.4vw,3vw);
+        font-size: $fontClamp02;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+    #searchButton{
+        display: grid;
+        justify-content: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: 06%;
+        height: 2vw;
+        width: 15%;
+        padding-left: 3px;
+        //border-radius: 50%;
+        background-color: transparent;
+        border: 0.1px none;
+    }
+    #searchLogo{
+        display: flex;
+        width: 1.4vw;
+        height: 1.4vw;
+        background-color: white;
+        border: solid lightblue;
+        border-radius: 50%;
+        transform: translateY(-15%);
+    }
+    #searchLogoHand{
+        display: flex;
+        background-color: lightblue;
+        width: 1.1vw;
+        height: 0.2vw;
+        border-radius: 50px 50px;
+        transform: rotate(45deg) translate(39%, -450%) ;
+        overflow: hidden;
+    }
 }
+

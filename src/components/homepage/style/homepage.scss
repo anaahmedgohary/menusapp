@@ -1,0 +1,19 @@
+
+
+
+$paaragraphfont01: clamp(0.2rem, 1vw, 1.5vw);
+
+
+
+.st01{
+    font-weight: bolder;
+    text-align: center;
+}
+
+.paragraph01{
+    //display:flex ;
+    font-size: $paaragraphfont01;
+    text-align: center;
+    width: 30vw;
+    margin-right: auto;
+}

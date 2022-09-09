@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+// @import "~bootstrap/scss/bootstrap";
+@mixin flexCenters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexSpaceAround {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin flexStart {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin flexEnd {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+$fontClamp01: clamp(0.001rem, 1vw, 2vw);
+$fontClamp02: clamp(0.001rem, 1vw, 2vw);
+$gucciyellow: rgba(189, 147, 2, 1);
+$guccigreen: rgba(10, 106, 86, 1);
+$guccired: rgba(168, 43, 17, 1);
+$guccired01: rgba(168, 43, 17, 0.2);
+
+#signupDiv {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 20vw;
+    width: 30vw;
+    background-image: linear-gradient(-80deg, white, wheat);
+    font-size: $fontClamp02;
+
+    #signinForm {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+    }
+}
+

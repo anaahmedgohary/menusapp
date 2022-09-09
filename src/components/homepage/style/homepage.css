@@ -1,0 +1,11 @@
+.st01 {
+  font-weight: bolder;
+  text-align: center;
+}
+
+.paragraph01 {
+  font-size: clamp(0.2rem, 1vw, 1.5vw);
+  text-align: center;
+  width: 30vw;
+  margin-right: auto;
+}/*# sourceMappingURL=homepage.css.map */
