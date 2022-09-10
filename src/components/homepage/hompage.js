@@ -1,15 +1,16 @@
 import React from 'react'
-//import { useState } from 'react';
+ import { useState } from 'react';
 import './style/homepage.css';
-//import $ from 'jquery';
+import $ from 'jquery';
 
 export default function Hompage() {
 
-    //const [displayViewer, setDisplayViewer] = useState("none");
-    
-    //function showImgView(){
-
-    //}
+    const [imgSrc, setImgSrc] = useState("");
+    function showImgView(e){
+        $("#menuViewer").css("display", "flex");
+        setImgSrc(e.target.src);
+        //console.log(e.target.src);
+    }
 
   return (
     <div className='container'>
@@ -38,25 +39,29 @@ export default function Hompage() {
             <div id='bodyImgs'>
                 <p>Featured Menus</p>
                 <div className='menusGallery'>
-                    <img className='bodyImg' src="./images/menu03.jpg" alt="" />
-                    <img className='bodyImg' src="./images/coffe.jpg" alt="" />
-                    <img className='bodyImg' src="./images/menu05.jpg" alt="" />
-                    <img className='bodyImg' src="./images/coffe2.jpg" alt="" />
-                    <img className='bodyImg' src="./images/cafe1.jpg" alt="" />
-                    <img className='bodyImg' src="./images/menu02.jpg" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/menu03.jpg" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/coffe.jpg" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/menu05.jpg" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/coffe2.jpg" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/cafe1.jpg" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/menu01.jpg" alt="" />
                 </div>               
             </div>
         </div>
 
         <div id='menuViewer'>
-            <div>
-                <span>Name</span>
-            </div>
-            <div>
-                <img className='viewerImg' src="./images/menu04.webp" alt="selected img" />
-            </div>
             
-            <div>additional</div>
+            <button id='closeView' className='btn btn-danger btn-sm' onClick={()=>{$("#menuViewer").hide()}}>X</button>
+            
+            <div className='infobar'>
+                <span >Name of Menu</span>
+                
+                <p><a href="/menus">More Info</a></p>
+                <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex voluptatibus quia quis pariatur amet odio! Ea doloremque delectus perspiciatis impedit iure, iste facilis natus eius incidunt aliquid nisi molestiae explicabo.</span>
+            </div>
+            <div>
+                <img id='clickedImg' className='viewerImg' src={imgSrc} alt="selected img" />
+            </div>
 
         </div>
 
@@ -67,11 +72,10 @@ export default function Hompage() {
 
 
         <div className='signupDiv'>
-            <a href="/signup" target="_blank" rel="noopener noreferrer">
+            <a className='signupLink' href="/signup">
                 Sign Up
             </a>
-            <span> Or </span>
-            <a href="/signup" target="_blank" rel="noopener noreferrer">
+            <a className='loginLink' href="/signup">
                 Log In
             </a>
         </div>
