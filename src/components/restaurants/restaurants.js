@@ -7,6 +7,16 @@ export default function Restaurants() {
         <div>
             <h2>My restaurants</h2>
         </div>
+        
+        <div id='seachBarDiv'>
+          <div className="tube-div">
+            <input id="searchInput" type="search" name="" />
+            <button id="searchButton">
+              <span id="searchLogo"></span>
+              <span id="searchLogoHand"></span>
+            </button>
+          </div>
+        </div>
 
     </div>
   )

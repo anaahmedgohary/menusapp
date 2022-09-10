@@ -7,6 +7,7 @@ import Header from "./components/header/header";
 //import Landing from "./components/landing/landing";
 import Hompage from "./components/homepage/hompage";
 import SignIn from "./components/signin-up/signin";
+import Restaurants from "./components/restaurants/restaurants";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Hompage />} />
         <Route path="/signup" element={<SignIn />} />
+        <Route path='/restaurants' element={<Restaurants />} />
       </Routes>
     </Router>
   );

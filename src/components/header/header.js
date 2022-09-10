@@ -36,6 +36,9 @@ export default function Header() {
           </a>
         </div>
         <li>
+          <a href="./login">Sign In</a>
+        </li>
+        <li>
           <a href="./reviews">Reviews</a>
         </li>
         <li>
@@ -48,27 +51,21 @@ export default function Header() {
       <nav className="main-nav01">
         <ul>
           <li>
-            <a href="restaurants">Restaurants</a>
+            <a href="/restaurants">Restaurants</a>
           </li>
           <li>
-            <a href="cafes">Cafes</a>
+            <a href="/cafes">Cafes</a>
           </li>
           <li>
-            <a href="trucks">Trucks</a>
+            <a href="/trucks">Trucks</a>
           </li>
           <li>
-            <a href="fastfood">Fast Food</a>
+            <a href="/fastfood">Fast Food</a>
           </li>
         </ul>
       </nav>
 
-      <div className="tube-div">
-        <input id="searchInput" type="search" name="" />
-        <button id="searchButton">
-          <span id="searchLogo"></span>
-          <span id="searchLogoHand"></span>
-        </button>
-      </div>
+      
 
       
 

@@ -135,12 +135,13 @@ $guccired01: rgba(168, 43, 17, 0.2);
                 color: antiquewhite;
                 padding: 10% 0% 10% 0%;
                 border-radius: 40px 40px;
-                transition: 699ms;
+                transition: 600ms;
                 background-color: black;
                 width: 8vw;
                 text-align: center;
                 &:hover {
-                        background-color: rgb(85, 107, 47);
+                        background-color: rgb(202, 199, 32);
+                        color: black;
                         cursor: pointer;
                 
                         
@@ -151,58 +152,5 @@ $guccired01: rgba(168, 43, 17, 0.2);
     }
 }
 
-.tube-div{
-    @include flexCenters();
-    background-color: antiquewhite;
-    min-width: 60px;
-    width: 14vw;
-    height: clamp(2vw,3vw,5vw);
-    text-align: center;
-    //border-bottom-right-radius: 50%;
-    //border-top-right-radius: 50%;
-    border: 1px solid;
-    border-radius: 40px 40px;
-    padding: 1% 1%;
 
-    #searchInput{
-        width: 70%;
-        height: clamp(1.6vw,2.4vw,3vw);
-        font-size: $fontClamp02;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        border: none;
-    }
-    #searchButton{
-        display: grid;
-        justify-content: center;
-        justify-content: center;
-        align-items: center;
-        margin-left: 06%;
-        height: 2vw;
-        width: 15%;
-        padding-left: 3px;
-        //border-radius: 50%;
-        background-color: transparent;
-        border: 0.1px none;
-    }
-    #searchLogo{
-        display: flex;
-        width: 1.4vw;
-        height: 1.4vw;
-        background-color: white;
-        border: solid lightblue;
-        border-radius: 50%;
-        transform: translateY(-15%);
-    }
-    #searchLogoHand{
-        display: flex;
-        background-color: lightblue;
-        width: 1.1vw;
-        height: 0.2vw;
-        border-radius: 50px 50px;
-        transform: rotate(45deg) translate(39%, -450%) ;
-        overflow: hidden;
-    }
-}
 

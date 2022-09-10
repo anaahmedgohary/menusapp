@@ -3,3 +3,93 @@
 }
 
 $font01: clamp(0.2rem, 1vw, 1.5vw);
+
+@mixin flexCenters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexSpaceAround{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@mixin flexStart {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+@mixin flexEnd {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+$fontClamp01:clamp(0.001rem, 1vw, 2vw);
+$fontClamp02: clamp(0.001rem, 1vw, 2vw);
+$gucciyellow: rgba(189, 147, 2, 1);
+$guccigreen: rgba(10, 106, 86, 1);
+$guccired: rgba(168, 43, 17, 1);
+$guccired01: rgba(168, 43, 17, 0.2);
+
+
+#seachBarDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+.tube-div{
+    margin-right: 10%;
+    @include flexCenters();
+    background-color: antiquewhite;
+    min-width: 60px;
+    width: 14vw;
+    height: clamp(20px,4vw,5vw);
+    text-align: center;
+    //border-bottom-right-radius: 50%;
+    //border-top-right-radius: 50%;
+    border: 1px solid;
+    border-radius: 40px 40px;
+    padding: 1% 1%;
+
+    #searchInput{
+        width: 75%;
+        height: clamp(12px,2.4vw,3vw);
+        font-size: $fontClamp02;
+        text-align: center;
+        padding: 0%;
+        margin: 0;
+        border: 0.0001px solid;
+        background-color: antiquewhite;
+        overflow: hidden;
+    }
+    #searchButton{
+        display: grid;
+        justify-content: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: 06%;
+        height: 2vw;
+        width: 15%;
+        padding-left: 3px;
+        //border-radius: 50%;
+        background-color: transparent;
+        border: 0.1px none;
+    }
+    #searchLogo{
+        display: flex;
+        width: 1.4vw;
+        height: 1.4vw;
+        background-color: white;
+        border: solid lightblue;
+        border-radius: 50%;
+        transform: translateY(-15%);
+    }
+    #searchLogoHand{
+        display: flex;
+        background-color: lightblue;
+        width: 1.1vw;
+        height: 0.2vw;
+        border-radius: 50px 50px;
+        transform: rotate(45deg) translate(39%, -450%) ;
+        overflow: hidden;
+    }
+}

@@ -93,65 +93,13 @@
   color: antiquewhite;
   padding: 10% 0% 10% 0%;
   border-radius: 40px 40px;
-  transition: 699ms;
+  transition: 600ms;
   background-color: black;
   width: 8vw;
   text-align: center;
 }
 .main-nav01 ul li a:hover {
-  background-color: rgb(85, 107, 47);
+  background-color: rgb(202, 199, 32);
+  color: black;
   cursor: pointer;
-}
-
-.tube-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: antiquewhite;
-  min-width: 60px;
-  width: 14vw;
-  height: 3vw;
-  text-align: center;
-  border: 1px solid;
-  border-radius: 40px 40px;
-  padding: 1% 1%;
-}
-.tube-div #searchInput {
-  width: 70%;
-  height: 2.4vw;
-  font-size: clamp(0.001rem, 1vw, 2vw);
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-.tube-div #searchButton {
-  display: grid;
-  justify-content: center;
-  justify-content: center;
-  align-items: center;
-  margin-left: 6%;
-  height: 2vw;
-  width: 15%;
-  padding-left: 3px;
-  background-color: transparent;
-  border: 0.1px none;
-}
-.tube-div #searchLogo {
-  display: flex;
-  width: 1.4vw;
-  height: 1.4vw;
-  background-color: white;
-  border: solid lightblue;
-  border-radius: 50%;
-  transform: translateY(-15%);
-}
-.tube-div #searchLogoHand {
-  display: flex;
-  background-color: lightblue;
-  width: 1.1vw;
-  height: 0.2vw;
-  border-radius: 50px 50px;
-  transform: rotate(45deg) translate(39%, -450%);
-  overflow: hidden;
 }/*# sourceMappingURL=header.css.map */
