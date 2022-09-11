@@ -21,7 +21,7 @@ export default function Hompage() {
             </p>     
         </div>
         <div className='landing'>
-            <div id='paragraphs'>
+            <div className='paragraphs'>
                 <p>
                     We are proud to provide all the Menus you 
                     will ever need in the city of
@@ -51,16 +51,17 @@ export default function Hompage() {
 
         <div id='menuViewer'>
             
-            <button id='closeView' className='btn btn-danger btn-sm' onClick={()=>{$("#menuViewer").hide()}}>X</button>
+            <button id='closeView' className='btn btn-danger btn-sm' title='Close' onClick={()=>{$("#menuViewer").hide()}}>X</button>
             
+            
+            <div>
+                <img id='clickedImg' className='viewerImg' src={imgSrc} alt="selected img" />
+            </div>
             <div className='infobar'>
                 <span >Name of Menu</span>
                 
                 <p><a href="/menus">More Info</a></p>
-                <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex voluptatibus quia quis pariatur amet odio! Ea doloremque delectus perspiciatis impedit iure, iste facilis natus eius incidunt aliquid nisi molestiae explicabo.</span>
-            </div>
-            <div>
-                <img id='clickedImg' className='viewerImg' src={imgSrc} alt="selected img" />
+                <span className='popupInfo'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex voluptatibus quia quis pariatur amet odio! Ea doloremque delectus perspiciatis impedit iure, iste facilis natus eius incidunt aliquid nisi molestiae explicabo.</span>
             </div>
 
         </div>

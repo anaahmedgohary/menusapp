@@ -13,21 +13,21 @@ export default function Header() {
 
       <div className="small-nav">
         <div className="nav-img-div">
-          <a href="https://www.fb.com" target="_blank" rel="noreferrer">
+          <a className='imgLink' href="https://www.fb.com" target="_blank" rel="noreferrer">
             <img
               className="nav-img"
               src="./images/facebook-circular-logo.png"
               alt="facebook logo"
             />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+          <a className='imgLink' href="https://www.instagram.com" target="_blank" rel="noreferrer">
             <img
               className="nav-img"
               src="./images/instagram.png"
               alt="instagram logo"
             />
           </a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noreferrer">
+          <a className='imgLink' href="https://www.tiktok.com" target="_blank" rel="noreferrer">
             <img
               className="nav-img"
               src="./images/tiktok.png"

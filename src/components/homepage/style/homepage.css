@@ -1,25 +1,28 @@
 .st01 {
-  font-size: 3vw;
+  font-size: 1.1rem;
   font-weight: bolder;
   text-align: center;
 }
 
 .landing {
   display: flex;
-}
-.landing #paragraphs {
-  width: 28vw;
-  font-size: clamp(0.2rem, 1.4vw, 1.5vw);
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-weight: bold;
+}
+.landing .paragraphs {
+  max-width: 33%;
+  font-size: 0.56rem;
+  text-align: center;
+  font-weight: bolder;
   margin-right: auto;
 }
 .landing #bodyImgs {
   width: 48vw;
+  font-size: 0.8rem;
 }
 .landing #bodyImgs p {
   width: 100%;
-  font-size: clamp(0.1rem, 2vw, 2.4vw);
   font-weight: bold;
   text-align: center;
   text-decoration: underline;
@@ -32,56 +35,79 @@
   flex-wrap: wrap;
   border: solid;
   background-color: wheat;
+  width: 100%;
 }
 .landing #bodyImgs .bodyImg {
-  width: 30%;
-  max-height: 22vh;
+  width: 24.3902439024%;
   margin: 0 0.2% 0.2% 0.2%;
   cursor: pointer;
 }
 
 #menuViewer {
-  position: absolute;
+  position: fixed;
   top: 0%;
   left: 0%;
-  width: 100%;
-  height: 100%;
-  max-height: 240%;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.671);
   display: none;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 1.2vw;
   color: white;
   padding-top: 4vh;
+  overflow: scroll;
   z-index: 1;
 }
 #menuViewer #closeView {
-  font-size: clamp(0.1em, 1.6vw, 2vw);
+  font-size: 0.6rem;
   font-weight: bolder;
-  position: absolute;
-  right: 12%;
-  top: 8%;
   border: solid;
+  max-height: 5vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #menuViewer .infobar {
-  font-size: clamp(0.1em, 1vw, 2vw);
-  position: absolute;
-  right: 12%;
-  top: 18%;
-  text-align: end;
-  width: 10%;
+  font-size: 0.54rem;
+  margin-top: 0%;
+  margin-bottom: 0;
+  text-align: center;
+  width: 45%;
+  overflow: scroll;
+  max-height: 10vw;
 }
-#menuViewer .menuinfo {
+#menuViewer .infobar p {
+  margin-top: 0%;
+  margin-bottom: 0;
+  font-size: 0.5rem;
+}
+#menuViewer .infobar p a {
   text-decoration: none;
+  color: green;
+  border: solid 1px;
+  border-radius: 50px 50px;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#menuViewer .infobar p a:hover {
+  color: rgb(231, 196, 154);
+  border: none;
+  text-decoration: underline;
+}
+#menuViewer .infobar .popupInfo {
+  margin-top: 0%;
+  font-size: 0.52rem;
 }
 
 .viewerImg {
   width: 45vw;
-  max-width: 1000px;
-  max-height: 80vh;
+  max-width: 800px;
+  max-height: 78vh;
   margin: 0;
   padding: 0;
 }
@@ -90,8 +116,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -8%;
-  font-size: clamp(0.0001rem, 0.01vw, 0.2vw);
+  margin-top: -2.6%;
+  margin-bottom: 2%;
   border: solid;
   width: 28vw;
   height: -webkit-fit-content;
@@ -105,7 +131,7 @@
   align-items: center;
   height: 100%;
   width: 50%;
-  font-size: clamp(0.0001rem, 1.1vw, 1.3vw);
+  font-size: 0.6rem;
   text-align: center;
   text-decoration: none;
   color: blanchedalmond;
@@ -127,8 +153,40 @@
   color: blanchedalmond;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 390px) {
+  #menuViewer {
+    justify-content: center;
+  }
+  .paragraphs {
+    margin: auto;
+    max-width: 5555px;
+    min-width: 60vw;
+  }
   .landing {
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  #bodyImgs {
+    color: white;
+    min-width: 73vw;
+  }
+  .menusGallery {
+    min-width: 70vw;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .bodyImg {
+    min-width: 45.4545454545%;
+  }
+  .signupDiv {
+    margin-top: 0.5%;
+    min-width: 60%;
+    margin: auto;
+  }
+  .viewerImg {
+    min-width: 90vw;
+    max-height: 80vh;
   }
 }/*# sourceMappingURL=homepage.css.map */

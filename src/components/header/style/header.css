@@ -10,47 +10,42 @@
 
 .home-title {
   margin-top: 0.4%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-.home-title a {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  text-decoration: none;
-  color: wheat;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-left: 10.5%;
 }
 .home-title a img {
-  width: 2.5vw;
-  height: 2.5vw;
+  width: 1rem;
   transition: 1500ms;
 }
 .home-title a img:hover {
-  text-decoration: underline;
   transform: rotate(-90deg);
   transition: 600ms;
 }
 
 .small-nav {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   background-color: rgba(141, 123, 90, 0.04);
   border-radius: 50px 50px;
 }
 .small-nav .righttoplinks {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 30%;
+  margin: auto;
+  padding-bottom: 2%;
 }
 .small-nav li {
   display: flex;
-  font-size: 1.3em;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   padding: 1%;
   transition: 500ms;
-  width: 30px;
+  width: 33%;
 }
 .small-nav li:hover {
   text-decoration: none;
@@ -61,23 +56,22 @@
 .small-nav li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.733);
-  font-size: clamp(0.0001rem, 1vw, 2.2vw);
+  font-size: 0.5rem;
 }
 .small-nav .nav-img-div {
   display: flex;
-  justify-content: left;
-  width: 70%;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40%;
   background-color: transparent;
+  margin: auto;
+  padding-bottom: 2%;
 }
 .small-nav .nav-img-div a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 4% 0 0%;
+  width: 1.2rem;
 }
 .small-nav .nav-img-div .nav-img {
-  width: 1vw;
-  height: 1vw;
+  width: 0.8rem;
 }
 
 .main-nav01 {
@@ -118,4 +112,36 @@
   background-color: rgba(245, 245, 245, 0.4);
   color: black;
   cursor: pointer;
+}
+
+@media screen and (max-width: 390px) {
+  .home-title {
+    margin-left: 10%;
+  }
+  .small-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    margin: auto;
+  }
+  .righttoplinks {
+    margin: auto;
+    min-width: 50%;
+  }
+  .righttoplinks li {
+    min-width: 43.4782608696%;
+  }
+  .nav-img-div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    max-width: 50%;
+    margin: auto;
+  }
+  .nav-img-div .imgLink {
+    display: flex;
+    justify-content: center;
+    min-width: 30.303030303%;
+  }
 }/*# sourceMappingURL=header.css.map */
