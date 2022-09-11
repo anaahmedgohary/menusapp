@@ -75,7 +75,7 @@ export default function Hompage() {
             <a className='signupLink' href="/signup">
                 Sign Up
             </a>
-            <a className='loginLink' href="/signup">
+            <a className='loginLink' href="/login">
                 Log In
             </a>
         </div>

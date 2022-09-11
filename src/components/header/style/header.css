@@ -2,10 +2,21 @@
   box-sizing: border-box;
 }
 
+.thingswrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .home-title {
   margin-top: 0.4%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .home-title a {
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   text-decoration: none;
   color: wheat;
@@ -24,22 +35,22 @@
 
 .small-nav {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-wrap: wrap;
   background-color: rgba(141, 123, 90, 0.04);
   border-radius: 50px 50px;
 }
+.small-nav .righttoplinks {
+  display: flex;
+  flex-direction: column;
+}
 .small-nav li {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(0.2rem, 1vw, 2.2vw);
+  font-size: 1.3em;
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   padding: 1%;
   transition: 500ms;
-  -webkit-text-decoration: overline 3px;
-          text-decoration: overline 3px;
+  width: 30px;
 }
 .small-nav li:hover {
   text-decoration: none;
@@ -50,6 +61,7 @@
 .small-nav li a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.733);
+  font-size: clamp(0.0001rem, 1vw, 2.2vw);
 }
 .small-nav .nav-img-div {
   display: flex;
@@ -70,37 +82,40 @@
 
 .main-nav01 {
   background-color: unset;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .main-nav01 ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 0% 10% 0% 10%;
 }
 .main-nav01 ul li {
+  font-size: 0.7em;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(0.2rem, 1.2vw, 2vw);
-  font-weight: 400;
+  width: 70px;
+  margin: auto;
+  font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .main-nav01 ul li a {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 80px;
   text-decoration: none;
   color: antiquewhite;
   padding: 10% 0% 10% 0%;
   border-radius: 40px 40px;
   transition: 600ms;
   background-color: black;
-  width: 8vw;
   text-align: center;
 }
 .main-nav01 ul li a:hover {
-  background-color: rgb(89, 169, 255);
-  text-decoration: underline;
+  background-color: rgba(245, 245, 245, 0.4);
   color: black;
   cursor: pointer;
 }/*# sourceMappingURL=header.css.map */

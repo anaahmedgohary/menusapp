@@ -156,3 +156,8 @@ $mostViewedFont:clamp(1rem, 2.4vw, 1.5vw);
         }
     }
 }
+
+@media screen and (max-width: 580px) {
+    .landing {
+        flex-direction: column;
+    }}

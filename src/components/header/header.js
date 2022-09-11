@@ -4,14 +4,14 @@ import "./style/header.css";
 
 export default function Header() {
   return (
-    <div className="container">
+    <div className="thingswrap">
       <div className="home-title">
         <a title="Homepage" href="./">
           <img src="./images/home.png" alt="Homepage" />
         </a>
       </div>
 
-      <ul className="small-nav">
+      <div className="small-nav">
         <div className="nav-img-div">
           <a href="https://www.fb.com" target="_blank" rel="noreferrer">
             <img
@@ -35,21 +35,20 @@ export default function Header() {
             />
           </a>
         </div>
-        <li>
-          <a href="./login">Sign In</a>
-        </li>
-        <li>
-          <a href="./reviews">Reviews</a>
-        </li>
-        <li>
-          <a href="./about">About Us</a>
-        </li>
-        <li>
-          <a href="./contact">Contact</a>
-        </li>
-      </ul>
+        <ul className='righttoplinks'>
+          <li>
+            <a href="./reviews">Reviews</a>
+          </li>
+          <li>
+            <a href="./about">About Us</a>
+          </li>
+          <li>
+            <a href="./contact">Contact</a>
+          </li>
+        </ul>
+      </div>
       <nav className="main-nav01">
-        <ul>
+        <ul className='nav-list'>
           <li>
             <a href="/restaurants">Restaurants</a>
           </li>

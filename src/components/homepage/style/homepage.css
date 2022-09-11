@@ -125,4 +125,10 @@
 .signupDiv .loginLink:hover {
   background-color: rgb(0, 170, 100);
   color: blanchedalmond;
+}
+
+@media screen and (max-width: 580px) {
+  .landing {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=homepage.css.map */
