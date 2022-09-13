@@ -1,32 +1,33 @@
 .st01 {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   font-weight: bolder;
   text-align: center;
+  margin-bottom: 2%;
+  border-bottom: solid;
 }
 
 .landing {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
 }
 .landing .paragraphs {
   max-width: 33%;
-  font-size: 0.56rem;
-  text-align: center;
-  font-weight: bolder;
+  font-size: 1.3rem;
+  text-align: left;
+  font-weight: bold;
   margin-right: auto;
 }
 .landing #bodyImgs {
-  width: 48vw;
-  font-size: 0.8rem;
+  margin-top: 2%;
+  width: 38vw;
 }
 .landing #bodyImgs p {
   width: 100%;
+  font-size: 1.2rem;
+  margin-bottom: 0.8%;
   font-weight: bold;
   text-align: center;
-  text-decoration: underline;
-  margin-bottom: 0.8%;
 }
 .landing #bodyImgs .menusGallery {
   display: flex;
@@ -117,9 +118,9 @@
   justify-content: center;
   align-items: center;
   margin-top: -2.6%;
-  margin-bottom: 2%;
   border: solid;
-  width: 28vw;
+  width: 16vw;
+  min-width: 150px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
