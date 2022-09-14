@@ -45,6 +45,8 @@ export default function Hompage() {
                     <img onClick={showImgView} className='bodyImg' src="./images/coffe2.jpg" alt="" />
                     <img onClick={showImgView} className='bodyImg' src="./images/cafe1.jpg" alt="" />
                     <img onClick={showImgView} className='bodyImg' src="./images/menu01.jpg" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/tallm.png" alt="" />
+                    <img onClick={showImgView} className='bodyImg' src="./images/sweets.png" alt="" />
                 </div>               
             </div>
         </div>

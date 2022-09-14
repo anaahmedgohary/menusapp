@@ -39,6 +39,7 @@ $guccired01: rgba(168, 43, 17, 0.2);
 .home-title{
     margin-top: 0.4%;
     margin-left: 10.5%;
+    margin-bottom: 4%;
     a{
         img{
             width: 1.4rem;
@@ -64,19 +65,18 @@ $guccired01: rgba(168, 43, 17, 0.2);
     align-items: center;  
     background-color: rgba(141, 123, 90, 0.04);
     //border: solid;
-    width: 76%;
+    width: 100%;
     height: 2.1rem;
     margin: auto; 
     .righttoplinks{
         display: flex;
         align-items: center;
-        justify-content: center;
-        margin-left: auto;
-        width: 20%;
+        justify-content: flex-end;
+        //margin-left: auto;
+        width: 100%;
         height: 100%;
         margin-top: auto;
-        background-color: rgba(255, 255, 255, 0.623);
-        border: solid rgba(0, 0, 0, 0.623);
+        
         border-radius: 8px;
         padding: 0;
      }
@@ -87,7 +87,8 @@ $guccired01: rgba(168, 43, 17, 0.2);
         font-family: 'Times New Roman', Times, serif;
         transition: 500ms;
         //padding: 2% 0% 2% 0%;
-        width: calc(100% / 3);
+        width: calc(100% / 15);
+        min-width: 4rem;
         height: calc(100% / 1);
         border-radius: 8px;
         &:hover{
@@ -98,6 +99,8 @@ $guccired01: rgba(168, 43, 17, 0.2);
         }
         a{
             @include flexCenters();
+            width: 100%;
+            height: 100%;
             text-decoration: none;
             color: rgba(0, 0, 0, 0.733);
             font-size: 0.8rem;
@@ -115,6 +118,7 @@ $guccired01: rgba(168, 43, 17, 0.2);
             padding: 0;
             color: black;
             margin-right:1.5rem;
+            //width: 100%;
         }
         .nav-img{
             width: 1.1rem;
