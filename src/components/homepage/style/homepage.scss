@@ -62,9 +62,10 @@
     top: 0%;
     left: 0%;
     width: 100vw;
-    height: 100vh;
-    min-width: 100vw;
-    min-height: 100vh;
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
     background-color: black;
     background-color: rgba(0, 0, 0, 0.671);
     display: none;
@@ -78,9 +79,10 @@
     z-index: 1;
 
     #closeView{
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         font-weight: bolder;
         border: solid;
+        width: 20vw;
         max-height: 5vh;
         text-align: center;
         display: flex;
@@ -125,10 +127,10 @@
     
 }
 .viewerImg{
-    width: 45vw;
+    width: 100vw;
     max-width: 800px;
     max-height: 78vh;
-    margin: 0;
+    margin: auto;
     padding:0;
     //margin-top: 10%;
 }
