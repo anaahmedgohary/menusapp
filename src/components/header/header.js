@@ -56,7 +56,7 @@ export default function Header() {
             <a href="/cafes">Cafes</a>
           </li>
           <li>
-            <a href="/trucks">Trucks</a>
+            <a href="/bakeries">Bakeries</a>
           </li>
           <li>
             <a href="/fastfood">Fast Food</a>

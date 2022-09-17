@@ -21,7 +21,7 @@ export default function Hompage() {
         <div className="paragraphs">
           <p>
             We are proud to provide all the Menus you will ever need in the city
-            of Zagazig. Our database include restaurans, cafes, food trucks and
+            of Zagazig. Our database include restaurans, cafes, bakeries and
             fast food menus.
           </p>
           <p></p>
