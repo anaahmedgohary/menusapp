@@ -15,7 +15,7 @@ export default function Hompage() {
   return (
     <div className="container">
       <div>
-        <p className="st01">Welcome to Menus Zag!</p>
+        <p className="welcom-line">Welcome to Menus Zag!</p>
       </div>
       <div className="landing">
         <div className="paragraphs">
@@ -26,6 +26,14 @@ export default function Hompage() {
           </p>
           <p></p>
           <p>We keep our menus updated at least once a week.</p>
+          <div className="signupDiv">
+            <a className="signupLink" href="/signup">
+              Sign Up
+            </a>
+            <a className="loginLink" href="/login">
+              Log In
+            </a>
+          </div>
         </div>
         <div id="bodyImgs">
           <p>Featured Menus</p>
@@ -117,14 +125,7 @@ export default function Hompage() {
         </div>
       </div>
 
-      <div className="signupDiv">
-        <a className="signupLink" href="/signup">
-          Sign Up
-        </a>
-        <a className="loginLink" href="/login">
-          Log In
-        </a>
-      </div>
+      
     </div>
   );
 }

@@ -6,7 +6,7 @@
 
 
 
-.st01{
+.welcom-line{
     font-size: 1.6rem;
     font-weight: bolder;
     text-align: center;
@@ -24,11 +24,12 @@
         text-align: left;
         font-weight: bold;
         margin-right: auto;
+        //overflow: scroll;
+        //height: 50rem;
     }
 
     #bodyImgs{
         margin-top: 2%;
-        //flex-direction: inherit;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -146,20 +147,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -2.6%;
-    //margin-bottom: 2%;
     border: solid;
-    width: 16vw;
-    min-width: 150px;
-    height: fit-content;
+    width: 16rem;
+    //min-width: 12rem;
+    height: 3rem;
     text-align: center;
+    margin-bottom: 3rem;
     a{
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
         width: 50%;
-        font-size: 0.6rem;
+        font-size: 1.4rem;
         text-align: center;
         text-decoration: none;
         color: blanchedalmond;
@@ -196,6 +196,7 @@
         margin: auto;
         max-width: 5555px;
         min-width: 60vw;
+        min-height: 55rem;
     }
     .landing {
         flex-direction: column;
@@ -204,7 +205,7 @@
     }
     #bodyImgs{
         color: white;
-        min-width: 73vw;
+        min-width: 98vw;
     }
     .menusGallery{
         min-width: 70vw;
@@ -217,10 +218,11 @@
     }
 
     .signupDiv{
-        margin-top: 0.5%;
-        min-width: 60%;
+        min-width: 60vw;
+        max-width: 70vw;
         margin: auto;
-
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 
     .viewerImg{
@@ -237,6 +239,7 @@
         flex-direction: column;
         .paragraphs{
             max-width: 90%;
+            min-height: 55rem;
             font-size: 1.3rem;
             text-align: left;
             font-weight: bold;
@@ -244,17 +247,16 @@
         }
         #bodyImgs{
             margin-top: 2%;
-            width: 90%;
             margin: auto;
             flex-direction: column;
         }
         
     }
     .signupDiv{
-        margin-top: 0.5%;
         min-width: 60%;
         margin: auto;
-
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 }
 
@@ -263,6 +265,8 @@
         flex-direction: column;
         .paragraphs{
             max-width: 90%;
+            min-height: 20rem;
+            max-height: 50rem;
             font-size: 1.3rem;
             text-align: left;
             font-weight: bold;
@@ -270,16 +274,65 @@
         }
         #bodyImgs{
             margin-top: 2%;
-            width: 90%;
             margin: auto;
             flex-direction: column;
         }
         
     }
     .signupDiv{
-        margin-top: 0.5%;
         min-width: 60%;
         margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .landing {
+        flex-direction: column;
+
+        .paragraphs {
+            max-width: 90%;
+            font-size: 1.3rem;
+            text-align: left;
+            font-weight: bold;
+            margin: auto;
+            margin-bottom: 2%;
+            max-height: fit-content;
+        }
+
+        #bodyImgs {
+            margin-top: 2%;
+            margin: auto;
+            flex-direction: column;
+        }
 
     }
+
+    .signupDiv {
+        min-width: 60%;
+        margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+
+    .landing .paragraphs {
+                min-width: 99%;
+                font-size: 1.3rem;
+                text-align: left;
+                font-weight: bold;
+                margin: auto;
+                margin-bottom: 4%;
+            }
+
+    .signupDiv {
+            min-width: 60%;
+            margin: auto;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
 }

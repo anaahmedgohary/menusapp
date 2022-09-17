@@ -1,4 +1,4 @@
-.st01 {
+.welcom-line {
   font-size: 1.6rem;
   font-weight: bolder;
   text-align: center;
@@ -121,14 +121,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -2.6%;
   border: solid;
-  width: 16vw;
-  min-width: 150px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  width: 16rem;
+  height: 3rem;
   text-align: center;
+  margin-bottom: 3rem;
 }
 .signupDiv a {
   display: flex;
@@ -136,7 +133,7 @@
   align-items: center;
   height: 100%;
   width: 50%;
-  font-size: 0.6rem;
+  font-size: 1.4rem;
   text-align: center;
   text-decoration: none;
   color: blanchedalmond;
@@ -166,6 +163,7 @@
     margin: auto;
     max-width: 5555px;
     min-width: 60vw;
+    min-height: 55rem;
   }
   .landing {
     flex-direction: column;
@@ -174,7 +172,7 @@
   }
   #bodyImgs {
     color: white;
-    min-width: 73vw;
+    min-width: 98vw;
   }
   .menusGallery {
     min-width: 70vw;
@@ -186,9 +184,11 @@
     min-width: 45.4545454545%;
   }
   .signupDiv {
-    margin-top: 0.5%;
-    min-width: 60%;
+    min-width: 60vw;
+    max-width: 70vw;
     margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
   .viewerImg {
     min-width: 90vw;
@@ -201,6 +201,7 @@
   }
   .landing .paragraphs {
     max-width: 90%;
+    min-height: 55rem;
     font-size: 1.3rem;
     text-align: left;
     font-weight: bold;
@@ -208,17 +209,42 @@
   }
   .landing #bodyImgs {
     margin-top: 2%;
-    width: 90%;
     margin: auto;
     flex-direction: column;
   }
   .signupDiv {
-    margin-top: 0.5%;
     min-width: 60%;
     margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
 }
 @media screen and (max-width: 540px) {
+  .landing {
+    flex-direction: column;
+  }
+  .landing .paragraphs {
+    max-width: 90%;
+    min-height: 20rem;
+    max-height: 50rem;
+    font-size: 1.3rem;
+    text-align: left;
+    font-weight: bold;
+    margin: auto;
+  }
+  .landing #bodyImgs {
+    margin-top: 2%;
+    margin: auto;
+    flex-direction: column;
+  }
+  .signupDiv {
+    min-width: 60%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
+@media screen and (max-width: 770px) {
   .landing {
     flex-direction: column;
   }
@@ -228,16 +254,36 @@
     text-align: left;
     font-weight: bold;
     margin: auto;
+    margin-bottom: 2%;
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
   }
   .landing #bodyImgs {
     margin-top: 2%;
-    width: 90%;
     margin: auto;
     flex-direction: column;
   }
   .signupDiv {
-    margin-top: 0.5%;
     min-width: 60%;
     margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
+@media screen and (max-width: 350px) {
+  .landing .paragraphs {
+    min-width: 99%;
+    font-size: 1.3rem;
+    text-align: left;
+    font-weight: bold;
+    margin: auto;
+    margin-bottom: 4%;
+  }
+  .signupDiv {
+    min-width: 60%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
 }/*# sourceMappingURL=homepage.css.map */
