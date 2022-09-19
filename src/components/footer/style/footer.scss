@@ -1,0 +1,177 @@
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.abstract-menus{
+    @include flexCenter();
+    min-height: 5rem;
+    height: 15vw;
+    min-width: 150px;
+    width: 40vw;
+    margin: auto;
+    border: solid;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    transition: ease-out 500ms;
+    font-size: clamp(0.0001rem, 0.6rem, 1rem);
+    &:hover .abstract-menu-left{
+        background-color: yellow;
+        transition: ease-in 600ms;
+        transform: rotate(0deg);
+        border-radius: 8px;
+        margin-right: 1px;
+    }
+    &:hover .abstract-menu-right{
+        background-color: violet;
+        transition: ease-in 600ms;
+        transform: rotate(0deg);
+        border: none;
+        border-radius: 8px;
+        margin-left: 1px;
+    }
+    &:hover .left-pop{
+        left: 30.2%;
+        //right: 0%;
+        //transform: translateX(-920%);
+        transition: 700ms;
+        opacity: 0.8;
+        pointer-events: all;
+    }
+    &:hover .right-pop{
+        right: 30.2%;
+        //transform: translateX(380%);
+        transition: 700ms;
+        opacity: 0.8;
+        pointer-events: all;
+    }
+
+    .left-pop{
+        position: absolute;
+        //transform: translateX(-560%);
+        left: 25%;
+        opacity: 0;
+        pointer-events: none;
+        min-width: 1.2rem;
+        width: 4.6%;
+        height: 4%;
+        cursor: pointer;
+        background-color: black;
+
+        &:before{
+            position: absolute;
+            content: "";
+            border: solid wheat;
+            border-radius: 8px;
+            left: 45%;
+            top: 10%;
+            width: 0%;
+            height: 50%;
+            background-color: wheat;
+            transform: rotate(45deg);
+        }
+        &:after{
+            position: absolute;
+            left: 45%;
+            top: 40%;
+            content: "";
+            border: solid wheat;
+            border-radius: 8px;
+            width: 0%;
+            height: 50%;
+            background-color: wheat;
+            transform: rotate(-45deg);
+        }
+    }
+    .right-pop{
+        position: absolute;
+        //transform: translateX(490%);
+        right: 25%;
+        opacity: 0;
+        pointer-events: none;
+        min-width: 1.2rem;
+        width: 4.6%;
+        height: 4%;
+        //border-radius: 50%;
+        cursor: pointer;
+        background-color: black;
+
+        &:before{
+            position: absolute;
+            content: "";
+            border: solid wheat;
+            border-radius: 8px;
+            left: 45%;
+            top: 10%;
+            width: 0%;
+            height: 50%;
+            background-color: wheat;
+            transform: rotate(-45deg);
+        }
+        &:after{
+            position: absolute;
+            left: 45%;
+            top: 40%;
+            content: "";
+            border: solid wheat;
+            border-radius: 8px;
+            width: 0%;
+            height: 50%;
+            background-color: wheat;
+            transform: rotate(45deg);
+        }
+    }
+    
+}
+
+.abstract-menu-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border: solid 5px;
+    margin: 0;
+    padding: 0;
+    max-width: 10rem;
+    width: 22%;
+    max-height: 15rem;
+    height: 80%;
+    transform: rotate(-20deg);
+    z-index: 1;
+    background-color: white;
+
+    .menu-head{
+        border: solid;
+        width: 50%;
+        height: 5%;
+        background-color: black;
+    }
+    
+}
+.abstract-menu-right{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border: solid 5px;
+    margin: 0;
+    padding: 0;
+    max-width: 10rem;
+    width: 22%;
+    max-height: 15rem;
+    height: 80%;
+    transform: rotate(20deg);
+    overflow: hidden;
+    color: white;
+    background-color: black;
+    .menu-head{
+        border: solid;
+        width: 50%;
+        height: 5%;
+        background-color: white;
+    }
+}

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //import logo from './logo.svg';
 //import './App.css';
 import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 //import Landing from "./components/landing/landing";
 import Hompage from "./components/homepage/hompage";
 import SignIn from "./components/signin-up/signin";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<SignIn />} />
         <Route path='/restaurants' element={<Restaurants />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
