@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .welcom-line {
   font-size: 1.6rem;
   font-weight: bolder;
