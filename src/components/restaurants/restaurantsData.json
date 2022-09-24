@@ -1,0 +1,27 @@
+[
+    {
+        "name":"SHAHD",
+        "img":"./images/menu03.jpg",
+        "description":"description",
+        "link":"/shahd"
+    },
+    {
+      "name": "Maxim",
+      "img": "./images/menu04.webp",
+      "description": "description",
+      "link": "/maxim"
+    },
+    {
+      "name": "7 Days",
+      "img": "./images/menu05.jpg",
+      "description": "description",
+      "link": "/7days"
+    },
+    {
+      "name": "Al Zaaeem",
+      "img": "./images/menu06.jpg",
+      "description": "description",
+      "link": "/al-zaaeem"
+    }
+
+]

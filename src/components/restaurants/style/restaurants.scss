@@ -93,3 +93,32 @@ $guccired01: rgba(168, 43, 17, 0.2);
         overflow: hidden;
     }
 }
+
+.restaurants-filters{
+    text-decoration: none;
+}
+
+.restaurants-menus{
+    @include flexCenters();
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+    font-size: 2em;
+    border: solid;
+
+
+    .menu-element{
+        margin-bottom: 5%;
+        border-bottom: solid 40px;
+
+        .title{
+            font-size: 2.5rem;
+        }
+        .img-div{
+
+            .menu-img{
+                max-width: 100%;
+            }
+        }
+    }
+}
