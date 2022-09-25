@@ -22,7 +22,7 @@ export default function Restaurants()
   return (
     <div className="container">
       <div>
-        <h2>My restaurants</h2>
+        <h2>Menus for Restaurants</h2>
       </div>
 
       <div id="seachBarDiv">
@@ -30,12 +30,15 @@ export default function Restaurants()
           <input
             id="searchInput"
             type="search"
-            name=""
+            name="searchInput"
+            placeholder="Search/Filter"
             ///////////////////////////////////////////////////////////////////
             value={searchValue}
-            onChange={(e) => { setSearchValue(e.target.value) }}
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+            }}
           />
-          <div id="searchButton">
+          <div id="searchIcon">
             <span id="searchLogo"></span>
             <span id="searchLogoHand"></span>
           </div>
@@ -44,40 +47,40 @@ export default function Restaurants()
 
       <section className="restaurants-filters"></section>
 
-
-
       <section className="container restaurants-menus">
-
-        {restaurantsData.filter((val) =>
-        {
-          if (searchValue === "")
-          {
-            return val;
-          } else if (val.name.toLowerCase().includes(searchValue.toLowerCase()))
-          {
-            return val;
-          } 
-          return false;
-        }).map((val, key) =>
-        {
-          return (<div className="menu-element">
-            <div className="title">{val.name}</div>
-            <div className="img-div">
-              <img className="menu-img" src={val.img} alt="" />
-              <p className="description">{val.description}</p>
-            </div>
-            <div className="link">
-              <a href={val.link} target="_blank" rel="noopener noreferrer">
-                link to resturant page
-              </a>
-            </div>
-          </div>)
-        })}
-
+        {restaurantsData
+          .filter((val) => {
+            if (searchValue === "") {
+              return val;
+            } else if (
+              val.name.toLowerCase().includes(searchValue.toLowerCase())
+            ) {
+              return val;
+            }
+            return false;
+          })
+          .map((val, key) => {
+            return (
+              <div className="menu-element">
+                <div className="title">{val.name}</div>
+                <div className="img-div">
+                  <img className="menu-img" src={val.img} alt="" />
+                  <p className="description">{val.description}</p>
+                </div>
+                <div className="link">
+                  <a
+                    className="ordering-link"
+                    href={val.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Order Now
+                  </a>
+                </div>
+              </div>
+            );
+          })}
       </section>
-
-      
-
     </div>
   );
 }
