@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import "./style/restaurants.css";
-import $ from 'jquery';
-//import TextField from "@mui/material/TextField";
+// import $ from 'jquery';
+// import TextField from "@mui/material/TextField";
 import restaurantsData from "./restaurantsData.json";
 
 export default function Restaurants()

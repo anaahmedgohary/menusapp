@@ -24,17 +24,17 @@
     transition: ease-out 500ms;
     font-size: clamp(0.0001rem, 0.6rem, 1rem);
     &:hover .abstract-menu-left{
-        background-color: yellow;
+        background-color: rgb(255, 230, 0);
         transition: ease-in 600ms;
         transform: rotate(0deg);
         border-radius: 8px;
         margin-right: 1px;
     }
     &:hover .abstract-menu-right{
-        background-color: violet;
+        background-color: green;
         transition: ease-in 600ms;
         transform: rotate(0deg);
-        border: none;
+        //border: black;
         border-radius: 8px;
         margin-left: 1px;
     }
