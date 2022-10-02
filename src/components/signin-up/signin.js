@@ -3,29 +3,35 @@ import "./style/signin.css";
 
 export default function SignIn() {
   return (
-    <div>
-      <div>
-        <button>Show Signin</button>
-      </div>
+    <div className="container">
       <div id="signupDiv">
-        <h6>Sign In</h6>
+        <h6>Sign Up</h6>
         <div>
           <form action="" method="post" id="signinForm">
-            <label className="label-signin" htmlFor="E-mail">
+            <label className="label-signin" htmlFor="email">
               E-mail
             </label>
-            <input type="email" name="email" id="email" />
-            <label className="label-signin" htmlFor="Password">
+            <input type="email" name="email" id="email" required />
+            <label className="label-signin" htmlFor="password">
               Password
             </label>
-            <input type="text" name="password" id="password" />
+            <input type="text" name="password" id="password" required />
             <div>
-              <input type="submit" value="Log In" />
+              <input
+                className="submit-btn btn btn-success"
+                type="submit"
+                value="Log In"
+              />
             </div>
           </form>
         </div>
         <div>
-          <a href="./forgotpass" target="_blank" rel="noopener noreferrer">
+          <a
+            className="forgot-pass"
+            href="./forgotpass"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             forgot password ?
           </a>
         </div>

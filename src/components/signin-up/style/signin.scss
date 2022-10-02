@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-// @import "~bootstrap/scss/bootstrap";
 @mixin flexCenters {
     display: flex;
     justify-content: center;
@@ -40,15 +39,43 @@ $guccired01: rgba(168, 43, 17, 0.2);
     text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
-    height: 20vw;
-    width: 30vw;
-    background-image: linear-gradient(-80deg, white, wheat);
-    font-size: $fontClamp02;
+    min-height: 40vh;
+    min-width: 200px;
+    max-width: 55vw;
+    margin: auto;
+    border: solid;
+    border-radius: 6px;
+    background-image: linear-gradient(-80deg, rgba(255, 255, 255, 0.827), rgba(245, 222, 179, 0.866));
+    h6{
+        text-align: left;
+        font-weight: bold;
+        width: 85%;
+        margin: 2%;
+    }
 
     #signinForm {
-            display: grid;
-            justify-items: center;
-            align-items: center;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+
+        label {
+            font-size: 1rem;
+        }
+
+        input {
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            margin-top: 14%;
+        }
+
+
+    }
+
+    .forgot-pass {
+        font-size: 0.6rem;
+        text-decoration: none;
+        color: rgba(141, 62, 62, 0.989);
     }
 }
-
