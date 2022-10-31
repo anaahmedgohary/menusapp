@@ -24,8 +24,8 @@
     "buildold": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "client": "npm run start --prefix ../backend",
-    "build": "concurrently --kill-others-on-fail \"npm run buildold\" \"npm run client\""
+    "client": "npm run server --prefix ../backend",
+    "build": "\"npm run buildold\" \"npm run client\""
   },
   "proxy":"http://localhost:4000",
   "eslintConfig": {
