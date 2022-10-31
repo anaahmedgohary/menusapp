@@ -1,5 +1,10 @@
 /* eslint-disable no-unused-vars */
 const express = require("express");
+
+require('dotenv').config()
+//console.log(process.env) // remove this after you've confirmed it is working
+//console.log(process.env.SSL)
+
 const product = require('./api/product');
 
 const mysql = require('mysql');
@@ -8,13 +13,10 @@ const bodyParser = require('body-parser');
 // const routerHandler = require('./routes/handler');
 
 
-const db = mysql.createConnection({
-    host: 'us-east.connect.psdb.cloud',
-    user: 'd1q35zdh6g7m5eslvnal',
-    password: 'pscale_pw_r3G6ixIaiwDhbaD8rSNvH84o2hsA5CNJleHuEBl8XmU',
-    database: 'fooddelivery',
-    ssl:{ "rejectUnauthorized": true }
-});
+const db = mysql.createConnection(process.env.DATABASE_URL);
+
+// console.log('Connected to PlanetScale!');
+//db.end();
 
 db.connect((err) =>
 {
@@ -22,13 +24,13 @@ db.connect((err) =>
     {
         throw err;
     };
-    console.log("db conn 24")
+    console.log('Connected to PlanetScale!');
 
 });
 
 
 const app = express();
-const port = process.env.port || 4000; // 5000
+const port = process.env.port || 4000; 
 
 app.use("/api/product", product);
 // parse application/x-www-form-urlencoded
@@ -94,7 +96,7 @@ app.post('/mylam/1', async (req, res) =>
         if (err) throw err;
         //console.log(result);
         
-        res.send("body oh wow");
+        res.send("signup success");
         // res.sendFile(__dirname + '/public/thanks.html')
     })
 

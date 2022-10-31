@@ -7,6 +7,13 @@ const bodyParser = require('body-parser');
 // create new database instance
 // const database = new Prohairesis(env.database);
 
+/* const db = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
+    ssl: { "rejectUnauthorized": true },
+}); */
 
 
 const db = mysql.createConnection({
