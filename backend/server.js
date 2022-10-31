@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 const express = require("express");
+const product = require('./api/product');
+
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
@@ -27,6 +29,8 @@ db.connect((err) =>
 
 const app = express();
 const port = process.env.port || 4000; // 5000
+
+app.use("/api/product", product);
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
