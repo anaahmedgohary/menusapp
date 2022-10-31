@@ -8,8 +8,8 @@ const express = require("express");
 
 const product = require('./api/product');
 
- const mysql = require('mysql');
-//const mysql = require('mysql2');
+// const mysql = require('mysql');
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
 
@@ -29,12 +29,12 @@ db.connect((err) =>
     };
     console.log('Connected to PlanetScale!');
     console.log(process.env.port);
-    db.end();
+    //db.end();
 });
 
 
 const app = express();
-const port = 4000 || process.env.port; // 
+const port = process.env.port || 4000; // 
 
 app.use("/api/product", product);
 // parse application/x-www-form-urlencoded
