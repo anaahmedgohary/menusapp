@@ -7,7 +7,8 @@ import { useEffect, useState } from 'react';
 
 
 //const baseURL = "http://localhost:5000/mylam";
-const baseURL = "/mylam/1";
+const baseURL = "https://menusappback.vercel.app";
+//const baseURL = "/mylam/1";
 
 
 export default function SignUp()
@@ -21,7 +22,8 @@ export default function SignUp()
   useEffect(() =>
   {
     // `${baseURL}/1`
-    axios.get('/mylam/1').then((response)=> {
+    // axios.get('/mylam/1')
+    axios.get(`${baseURL}/api/product`).then((response)=> {
       setPost(response.data)
      // console.log(post);
     })
@@ -38,7 +40,7 @@ export default function SignUp()
     //const newuser = {username: "llcoolj", password: "icetea"};
 
     axios
-      .post(baseURL, {username: username, password: password})
+      .post(`${baseURL}/mylam/1`, {username: username, password: password})
       .then((req, res) =>
       {
         setPost(res.data);
