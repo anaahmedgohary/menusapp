@@ -44,7 +44,6 @@ export default function SignUp()
       .then((req, res) =>
       {
         setPost(res.data);
-       
       })
   }
 
