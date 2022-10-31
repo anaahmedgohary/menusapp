@@ -5,7 +5,7 @@ const product = require('./api/product');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
-const routerHandler = require('./routes/handler');
+// const routerHandler = require('./routes/handler');
 
 
 const db = mysql.createConnection({
@@ -36,11 +36,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use('/', routerHandler);
+// app.use('/', routerHandler);
 
 
 
-app.get("/api", (req, res) =>
+app.get("/apiold", (req, res) =>
 {
     res.json({ "users": ["a", "b", "c", "24"] })
     // console.log("server connd")
