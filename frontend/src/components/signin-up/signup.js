@@ -41,9 +41,11 @@ export default function SignUp()
 
     axios
       .post(`${baseURL}/mylam/1`, {username: username, password: password})
-      .then((req, res) =>
+      //.then((req, res) =>
+      .then((response) =>
       {
-        setPost(res.data);
+        //setPost(res.data);
+        setPost(response.data);
       })
   }
 
