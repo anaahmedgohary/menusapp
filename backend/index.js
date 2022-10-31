@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const express = require("express");
-require('dotenv').config();
+
 
 
 //console.log(process.env) // remove this after you've confirmed it is working
@@ -8,14 +8,14 @@ require('dotenv').config();
 
 const product = require('./api/product');
 
-// const mysql = require('mysql');
-const mysql = require('mysql2');
+ const mysql = require('mysql');
+//const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
 
 // const routerHandler = require('./routes/handler');
 
-
+require('dotenv').config();
 const db = mysql.createConnection(process.env.DATABASE_URL);
 
 // console.log('Connected to PlanetScale!');
@@ -28,20 +28,22 @@ db.connect((err) =>
         throw err;
     };
     console.log('Connected to PlanetScale!');
+    console.log(process.env.port);
+    db.end();
 });
 
 
 const app = express();
-const port = 4000; // process.env.port
+const port = 4000 || process.env.port; // 
 
-
+app.use("/api/product", product);
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
 // app.use('/', routerHandler);
-app.use("/api/product", product);
+
 
 
 
