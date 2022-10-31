@@ -3,6 +3,8 @@ import React from 'react';
 import "./style/signin.css";
 import { useEffect, useState } from 'react';
 
+import mysql from "mysql";
+
 
 //const baseURL = "http://localhost:5000/mylam";
 const baseURL = "/mylam/1";
@@ -29,6 +31,24 @@ export default function SignUp()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const db = mysql.createConnection({
+    host: 'us-east.connect.psdb.cloud',
+    user: 'd1q35zdh6g7m5eslvnal',
+    password: 'pscale_pw_r3G6ixIaiwDhbaD8rSNvH84o2hsA5CNJleHuEBl8XmU',
+    database: 'fooddelivery',
+    ssl: { "rejectUnauthorized": true }
+  });
+  db.connect((err) =>
+  {
+    if (err)
+    {
+      throw err;
+    };
+    console.log("db conn 24")
+
+  });
+
 
   const handelSubmit = (e)=>{
     e.preventDefault();
