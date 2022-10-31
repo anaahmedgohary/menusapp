@@ -21,11 +21,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "buildold": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "client": "npm run server --prefix ../backend",
-    "build": "\"react-scripts build\" \"npm run client\""
+    "build02": "\"react-scripts build\" \"npm run client\""
   },
   "proxy":"http://localhost:4000",
   "eslintConfig": {
