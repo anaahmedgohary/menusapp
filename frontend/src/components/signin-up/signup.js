@@ -25,7 +25,6 @@ export default function SignUp()
     // `${baseURL}/api/product`
     axios.get(`${baseURL}/api/product`).then((response)=> {
       setPost(response.data)
-     // console.log(post);
     })
   },[])
 
