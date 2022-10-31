@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const express = require("express");
 
-require('dotenv').config()
+
 //console.log(process.env) // remove this after you've confirmed it is working
 //console.log(process.env.SSL)
 
@@ -9,6 +9,7 @@ const product = require('./api/product');
 
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+require('dotenv').config()
 
 // const routerHandler = require('./routes/handler');
 
