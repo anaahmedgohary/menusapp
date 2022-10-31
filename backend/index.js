@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 const express = require("express");
+require('dotenv').config();
 
 
 //console.log(process.env) // remove this after you've confirmed it is working
@@ -7,9 +8,10 @@ const express = require("express");
 
 const product = require('./api/product');
 
-const mysql = require('mysql');
+// const mysql = require('mysql');
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-require('dotenv').config()
+
 
 // const routerHandler = require('./routes/handler');
 
@@ -26,20 +28,20 @@ db.connect((err) =>
         throw err;
     };
     console.log('Connected to PlanetScale!');
-
 });
 
 
 const app = express();
-const port = process.env.port || 4000; 
+const port = 4000; // process.env.port
 
-app.use("/api/product", product);
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
 // app.use('/', routerHandler);
+app.use("/api/product", product);
 
 
 
@@ -73,17 +75,15 @@ app.post('/shifters', (req, res) =>
 
 });
 
-app.get('/mylam/1', (req, res) =>
+
+app.get('/mylam/1', async (req, res) =>
 {
-    //res.json(req.body);
-   
     res.json({ "username": "nolam", "password": "longgone" })
 });
 
 app.post('/mylam/1', async (req, res) =>
 {
    // res.json(req.body);
-    
     const body = req.body;
     let username = body.username;
     let password = body.password;
@@ -102,11 +102,6 @@ app.post('/mylam/1', async (req, res) =>
     })
 
 })
-
-
-
-
-
 
 
 
