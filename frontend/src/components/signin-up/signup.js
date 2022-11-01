@@ -22,6 +22,18 @@ export default function SignUp()
   {
     // `${baseURL}/1`
     // axios.get('/mylam/1')
+    // CORS fix ?
+    // axios({
+    //   method: 'get',
+    //   headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': 'true' },
+    //   url: 'https://menusappback.vercel.app/api/product',
+    // }).then(function (response)
+    // {
+    //   response.header('Access-Control-Allow-Origin', 'true')
+    //   console.log(response.data);
+    // });
+   // CORS fix ?*/
+
     // `${baseURL}/api/product`
     axios.get(`${baseURL}/api/product`).then((response)=> {
       setPost(response.data)

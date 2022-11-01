@@ -1,3 +1,5 @@
 {
-    "webpackConfig": "../webpack.config.js"
+    "webpackConfig": "../webpack.config.js",
+    "editor.stickyScroll.enabled": true,
+    "editor.stickyScroll.maxLineCount": 6
 }
