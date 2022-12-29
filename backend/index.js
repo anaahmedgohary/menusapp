@@ -42,17 +42,16 @@ const port = process.env.port || 4000; //
 
 // Requests handelers
 
-    app.use(cors());  // CORS allow all Requests
+app.use(cors());  // CORS allow all Requests
     // CORS Fix end
 
-app.use("/api/product", product);
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
 // app.use('/', routerHandler);
-
+app.use("/api/product", product);
 
 
 
