@@ -127,6 +127,13 @@ function sendWelcomeEmail(email)
     })
 }
 
+app.post('/email/welcome', async (req, res) =>
+{
+    sendWelcomeEmail(username)
+        .then(response => res.send(response.message))
+        .catch(error => res.status(500).send(error.message))
+});
+
 app.post('/mylam/1', async (req, res) =>
 {
    // res.json(req.body);
@@ -147,9 +154,7 @@ app.post('/mylam/1', async (req, res) =>
         // res.sendFile(__dirname + '/public/thanks.html')
     })
 
-    sendWelcomeEmail(username)
-        .then(response => res.send(response.message))
-    .catch(error => res.status(500).send(error.message))
+    
 
 })
 

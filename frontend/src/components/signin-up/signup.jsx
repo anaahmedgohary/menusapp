@@ -51,7 +51,7 @@ export default function SignUp()
     //const newuser = {username: "llcoolj", password: "icetea"};
 
     axios
-      .post(`${baseURL}/mylam/1`, {username: username, password: password})
+      .post(`${baseURL}/email/welcome`, {username: username, password: password})
       //.then((req, res) =>
       .then((response) =>
       {
