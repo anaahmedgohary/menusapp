@@ -94,6 +94,7 @@ app.get('/mylam/test', async (req, res) =>
     res.json({ "username": "nolam", "password": "longgone" })
 });
 
+
 function sendWelcomeEmail(email)
 {
     return new Promise((resolve, reject) =>

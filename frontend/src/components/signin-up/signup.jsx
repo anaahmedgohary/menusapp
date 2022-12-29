@@ -42,6 +42,7 @@ export default function SignUp()
       {
         //setPost(res.data);
         setPost(response.data);
+        console.log(response.data);
         if (response.status === 200)
         {
           axios.post(`${baseURL}/email/welcome`, { username: username })
