@@ -3,6 +3,7 @@ const express = require("express");
 // CORS Fix
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 
 
 //console.log(process.env) // remove this after you've confirmed it is working
@@ -12,6 +13,7 @@ const product = require('./api/product');
 
 // const mysql = require('mysql');
 const mysql = require('mysql2');
+const { response } = require("express");
 
 
 
@@ -113,7 +115,43 @@ app.post('/mylam/1', async (req, res) =>
         // res.sendFile(__dirname + '/public/thanks.html')
     })
 
+    sendWelcomeEmail(username)
+        .then(response => res.send(response.message))
+    .catch(error => res.status(500).send(error.message))
+
 })
+
+function sendWelcomeEmail(email)
+{
+    return new Promise((resolve, reject) =>
+    {
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'gogoahmed13@gmail.com',
+                pass: 'ksgmffptgcaktzor'
+                // app pass google 'ksgmffptgcaktzor'
+            }
+        });
+
+        const mail_configs = {
+            from: 'gogoahmed13@gmail.com',
+            to: email,
+            subject: 'Welcome Email',
+            text: 'Thank you for siging up to city menus app.'
+        };
+
+        transporter.sendMail(mail_configs, (error, info) =>
+        {
+            if (error)
+            {
+                console.log(error)
+                return reject({message:`An error has happened!`})
+            }
+            return resolve({message:`Email sent succesfuly!`})
+        });
+    })
+}
 
 
 

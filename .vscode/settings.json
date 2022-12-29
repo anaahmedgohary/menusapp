@@ -1,5 +1,6 @@
 {
     "webpackConfig": "../webpack.config.js",
     "editor.stickyScroll.enabled": true,
-    "editor.stickyScroll.maxLineCount": 6
+    "editor.stickyScroll.maxLineCount": 6,
+    "files.autoSave": "onWindowChange"
 }
