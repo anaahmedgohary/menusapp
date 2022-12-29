@@ -95,6 +95,38 @@ app.get('/mylam/1', async (req, res) =>
     res.json({ "username": "nolam", "password": "longgone" })
 });
 
+function sendWelcomeEmail(email)
+{
+    return new Promise((resolve, reject) =>
+    {
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'gogoahmed13@gmail.com',
+                pass: 'ksgmffptgcaktzor'
+                // app pass google 'ksgmffptgcaktzor'
+            }
+        });
+
+        const mail_configs = {
+            from: 'gogoahmed13@gmail.com',
+            to: email,
+            subject: 'Welcome Email',
+            text: 'Thank you for siging up to city menus app.'
+        };
+
+        transporter.sendMail(mail_configs, (error, info) =>
+        {
+            if (error)
+            {
+                console.log(error)
+                return reject({ message: `An error has happened!` })
+            }
+            return resolve({ message: `Email sent succesfuly!` })
+        });
+    })
+}
+
 app.post('/mylam/1', async (req, res) =>
 {
    // res.json(req.body);
@@ -121,37 +153,7 @@ app.post('/mylam/1', async (req, res) =>
 
 })
 
-function sendWelcomeEmail(email)
-{
-    return new Promise((resolve, reject) =>
-    {
-        var transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'gogoahmed13@gmail.com',
-                pass: 'ksgmffptgcaktzor'
-                // app pass google 'ksgmffptgcaktzor'
-            }
-        });
 
-        const mail_configs = {
-            from: 'gogoahmed13@gmail.com',
-            to: email,
-            subject: 'Welcome Email',
-            text: 'Thank you for siging up to city menus app.'
-        };
-
-        transporter.sendMail(mail_configs, (error, info) =>
-        {
-            if (error)
-            {
-                console.log(error)
-                return reject({message:`An error has happened!`})
-            }
-            return resolve({message:`Email sent succesfuly!`})
-        });
-    })
-}
 
 
 
