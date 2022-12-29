@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 const express = require("express");
+// CORS Fix
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -40,7 +41,7 @@ const port = process.env.port || 4000; //
 // Requests handelers
 
     app.use(cors());  // CORS allow all Requests
-
+    // CORS Fix end
 
 app.use("/api/product", product);
 // parse application/x-www-form-urlencoded
@@ -50,23 +51,7 @@ app.use(bodyParser.json());
 
 // app.use('/', routerHandler);
 
-// CORS Fix
-    // var allowCrossDomain = function (req, res, next)
-    // {
-    //     res.header('Access-Control-Allow-Origin', "*");
-    //     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    //     res.header('Access-Control-Allow-Headers', 'Content-Type');
-    //     next();
-    // };
-    // app.use(allowCrossDomain);
-    
-//
 
-
-// app.options("*", cors({ origin: 'https://menusappback.vercel.app', optionsSuccessStatus: 200 }));
-// app.use(cors({ origin: "https://menusappback.vercel.app", optionsSuccessStatus: 200 }));
-
-// CORS Fix end
 
 
 
