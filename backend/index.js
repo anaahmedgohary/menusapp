@@ -129,6 +129,9 @@ function sendWelcomeEmail(email)
 
 app.post('/email/welcome', async (req, res) =>
 {
+    const body = req.body;
+    let username = body.username;
+
     sendWelcomeEmail(username)
         .then(response => res.send(response.message))
         .catch(error => res.status(500).send(error.message))
