@@ -112,7 +112,7 @@ function sendWelcomeEmail(email)
             from: 'gogoahmed13@gmail.com',
             to: email,
             subject: 'Welcome Email',
-            text: 'Thank you for siging up to city menus app.'
+            text: 'Thank you and welcome to city menus app.'
         };
 
         transporter.sendMail(mail_configs, (error, info) =>
@@ -156,12 +156,6 @@ app.post('/mylam/1', async (req, res) =>
         res.send("signup success");
         // res.sendFile(__dirname + '/public/thanks.html')
     });
-
-    sendWelcomeEmail(username)
-        .then(response => res.send(response.message))
-        .catch(error => res.status(500).send(error.message))
-
-    
 
 })
 

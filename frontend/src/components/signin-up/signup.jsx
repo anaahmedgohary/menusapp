@@ -57,7 +57,14 @@ export default function SignUp()
       {
         //setPost(res.data);
         setPost(response.data);
+        if (response.status === 200)
+        {
+          axios.post(`${baseURL}/email/welcome`, { username: username })
+            .then(response => { console.log(response) })
+            .catch(error => { console.log(error) })
+        }
       })
+      .catch(error => { console.log(error) })
   }
 
   //if (!backendData) return "No post!";
