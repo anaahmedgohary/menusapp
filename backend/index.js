@@ -89,7 +89,7 @@ app.post('/shifters', (req, res) =>
 });
 
 
-app.get('/mylam/1', async (req, res) =>
+app.get('/mylam/test', async (req, res) =>
 {
     res.json({ "username": "nolam", "password": "longgone" })
 });

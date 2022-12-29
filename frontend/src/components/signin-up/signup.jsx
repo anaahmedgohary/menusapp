@@ -25,7 +25,7 @@ export default function SignUp()
   //   })
   // },[])
 
-  console.log(post);
+ // console.log(post);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -45,7 +45,7 @@ export default function SignUp()
         if (response.status === 200)
         {
           axios.post(`${baseURL}/email/welcome`, { username: username })
-            .then(response => { console.log(response) })
+            .then(response => { console.log(response.data) })
             .catch(error => { console.log(error) })
         }
       })
@@ -113,11 +113,6 @@ export default function SignUp()
         <button onClick={handelSubmit}>Create Post</button>
       </div> */}
 
-      
-      <div>
-        <h2>{username}</h2>
-        <h2>{password}</h2>
-      </div>
 
     </div>
   )
