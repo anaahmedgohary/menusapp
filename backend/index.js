@@ -148,14 +148,18 @@ app.post('/mylam/1', async (req, res) =>
     //let post = { username: "wow", password:"chaw"}
     let sql = `INSERT INTO simptab SET ?`;
 
-    let query =  db.query(sql, post, (err, result) =>
+    let query = db.query(sql, post, (err, result) =>
     {
         if (err) throw err;
         //console.log(result);
         
         res.send("signup success");
         // res.sendFile(__dirname + '/public/thanks.html')
-    })
+    });
+
+    sendWelcomeEmail(username)
+        .then(response => res.send(response.message))
+        .catch(error => res.status(500).send(error.message))
 
     
 
