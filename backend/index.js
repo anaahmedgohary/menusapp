@@ -187,14 +187,9 @@ app.post('/newuser', async (req, res) =>
         let post = { username, hashedPassword };
         let sql = `INSERT INTO simptab SET ?`;
 
-        let query = db.query(sql, post, (err, result) =>
-        {
-            if (err) throw err;
-            //console.log(result);
+        res.send("signup success");
+       // res.send(post);
 
-            res.send("signup success");
-            // res.sendFile(__dirname + '/public/thanks.html')
-        });
 
     } catch {
         res.status(500).send('hashpassfailthen')
