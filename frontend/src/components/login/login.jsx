@@ -57,17 +57,7 @@ export default function LogIn()
           setPassword('');
           window.alert('Thank you.\n You are now logged in.');
           window.location.href = '/';
-
-        } else if (response.status === 400)
-        {
-          console.log(response.body);
-          window.alert('Incorrect username or password.\ntry again.');
-          
-        } else
-        {
-          console.log(response.body);
-          window.alert('Incorrect username or password.\ntry again.');
-        }
+        } 
         
       })
       .catch(error =>

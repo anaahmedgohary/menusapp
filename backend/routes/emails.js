@@ -63,7 +63,7 @@ function newLoginAlert(email)
         const mail_configs = {
             from: 'gogoahmed13@gmail.com',
             to: email,
-            subject: 'Welcome Email',
+            subject: 'Login Alert',
             text: `Dear ${email}, we'd like to alert you that there's been a new login to your account.`
         };
 

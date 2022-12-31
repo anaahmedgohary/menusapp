@@ -67,6 +67,7 @@ router.post('/authuser', async (req, res) =>
 
         if (user == null)
         {
+            console.log('password wrong');
             return res.status(400).send('cannot find user')
         }
 
@@ -80,7 +81,7 @@ router.post('/authuser', async (req, res) =>
             {
                 res.status(400).send('password wrong')
                // res.send('incorrect email or incorrect password')
-                console.log('got nooo user');
+                console.log('password wrong');
             }
         } catch {
             res.status(500).send('no userconn');
