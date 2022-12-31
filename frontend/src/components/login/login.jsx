@@ -55,6 +55,9 @@ export default function LogIn()
           setPassword('');
           window.alert('Thank you.\n You are now logged in.');
           window.location.href = '/';
+
+        } else if(response.status === 400){
+          window.alert('Incorrect password.\ntry again.');
         }
         
       })
