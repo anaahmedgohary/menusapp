@@ -73,7 +73,6 @@ export default function LogIn()
       .catch(error =>
       {
         console.log(error);
-        console.log(response.body);
         window.alert('Incorrect username or password.\ntry again.');
       });
     
