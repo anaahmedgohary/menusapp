@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+#signupDiv {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  min-height: 40vh;
+  min-width: 200px;
+  max-width: 55vw;
+  margin: auto;
+  border: solid;
+  border-radius: 6px;
+  background-image: linear-gradient(-80deg, rgba(255, 255, 255, 0.827), rgba(245, 222, 179, 0.866));
+}
+#signupDiv h6 {
+  text-align: left;
+  font-weight: bold;
+  width: 85%;
+  margin: 2%;
+}
+#signupDiv #signinForm {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+#signupDiv #signinForm label {
+  font-size: 1rem;
+}
+#signupDiv #signinForm input {
+  font-size: 1rem;
+}
+#signupDiv #signinForm .submit-btn {
+  margin-top: 14%;
+}
+#signupDiv .forgot-pass {
+  font-size: 0.6rem;
+  text-decoration: none;
+  color: rgba(141, 62, 62, 0.989);
+}/*# sourceMappingURL=signin.css.map */

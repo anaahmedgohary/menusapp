@@ -6,15 +6,16 @@ const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 
 require('dotenv').config();
-//const db = mysql.createConnection(process.env.DATABASE_URL);
+const db = mysql.createConnection(process.env.DATABASE_URL);
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'pma',
-    password: '',
-    database: 'node24db' //table tester01
+// local dev
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'pma',
+//     password: '',
+//     database: 'node24db' //table tester01
 
-});
+// });
 
 
 
@@ -49,10 +50,10 @@ router.post("/addmanlam", (req, res) =>
 });
 
 
-router.post('/get/user', async (req, res) =>
+router.post('/authuser', async (req, res) =>
 {
 
-    let sql = `SELECT * FROM tester01`;
+    let sql = `SELECT * FROM simptab`;
     let query = db.query(sql, async (err, results) =>
     {
         if (err) throw err;
@@ -62,7 +63,7 @@ router.post('/get/user', async (req, res) =>
         // console.log(results);
 
         const users = results;
-        const user = await users.find(user => user.username = req.body.username);
+        const user = await users.find(user => user.username === req.body.username);
 
         if (user == null)
         {

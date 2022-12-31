@@ -8,6 +8,7 @@ import Footer from "./components/footer/footer";
 //import Landing from "./components/landing/landing";
 import Hompage from "./components/homepage/hompage";
 import SignUp from "./components/signin-up/signup";
+import LogIn from "./components/login/login";
 import Restaurants from "./components/restaurants/restaurants";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Hompage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<LogIn />} />
         <Route path='/restaurants' element={<Restaurants />} />
       </Routes>
       <Footer />

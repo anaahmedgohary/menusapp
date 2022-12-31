@@ -1,18 +1,17 @@
 import axios from "axios";
 import React from 'react';
 import "./style/signin.css";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import $ from 'jquery';
 
 
 
 
-// local
 //const baseURL = "http://localhost:4000";
 const baseURL = "https://menusappback.vercel.app";
 
 
-export default function SignUp()
+export default function LogIn()
 {
   
   //const [backendData, setBackendData] = useState([{}]);
@@ -38,7 +37,7 @@ export default function SignUp()
     //const newuser = {username: "llcoolj", password: "icetea"};
 
     axios
-      .post(`${baseURL}/signup/newuser`, { username: username, password: password })
+      .post(`${baseURL}/login/authuser`, { username: username, password: password })
       //.then((req, res) =>
       .then((response) =>
       {
@@ -47,7 +46,7 @@ export default function SignUp()
         console.log(response.data);
         if (response.status === 200)
         {
-          axios.post(`${baseURL}/emails/welcome`, { username: username })
+          axios.post(`${baseURL}/emails/loginalert`, { username: username })
             .then(response => { console.log(response.data) })
             .catch(error => { console.log(error) })
         }
@@ -56,11 +55,9 @@ export default function SignUp()
     
     setUsername('');
     setPassword('');
-    window.alert('Thank you for signing up.\ncheck your email inbox.');
-
-   // redirect("/login");
-    window.location.href = '/login';
-
+    window.alert('Thank you.\n You are now logged in.');
+    window.location.href = '/';
+    
   }
 
   //if (!backendData) return "No post!";
@@ -69,7 +66,7 @@ export default function SignUp()
   return (
     <div className="container">
       <div id="signupDiv">
-        <h6>Sign Up</h6>
+        <h6>Log in</h6>
         <div>
           <form onSubmit={handelSubmit}
             id="signinForm"
@@ -90,10 +87,20 @@ export default function SignUp()
                 type="submit"
                 id='submit-btn'
                 >
-                Sign Up
+                Log in
               </button>
             </div>
           </form>
+        </div>
+        <div>
+          <a
+            className="forgot-pass"
+            href="./forgotpass"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            forgot password ?
+          </a>
         </div>
       </div>
 
