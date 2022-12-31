@@ -6,7 +6,17 @@ const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 
 require('dotenv').config();
-const db = mysql.createConnection(process.env.DATABASE_URL);
+//const db = mysql.createConnection(process.env.DATABASE_URL);
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'pma',
+    password: '',
+    database: 'node24db' //table tester01
+
+});
+
+
 
 db.connect((err) =>
 {
@@ -74,27 +84,78 @@ router.post('/passnewuser', async (req, res) =>
     }
 })
 
-
-app.post('/mylam/1', async (req, res) =>
+router.get('/', (req, res) =>
 {
-    // res.json(req.body);
-    const body = req.body;
-    let username = body.username;
-    let password = body.password;
-    console.log(body);
-    let post = { username, password };
-    //let post = { username: "wow", password:"chaw"}
-    let sql = `INSERT INTO simptab SET ?`;
+    res.send('weeeeeeee')
+})
 
-    let query = db.query(sql, post, (err, result) =>
+
+
+router.post('/get/users', async (req, res) =>
+{
+
+    let sql = `SELECT * FROM tester01`;
+    let query = db.query(sql, async (err, results) =>
     {
         if (err) throw err;
-        //console.log(result);
+        res.send('got z results');
+        console.log('got z results');
+      //  res.send(results);
+       // console.log(results);
+        
+        const users = results;
+        const user = users.find(user => user.username === req.body.username);
 
-        res.send("signup success");
-        // res.sendFile(__dirname + '/public/thanks.html')
-    });
+        if (user == null)
+        {
+            return res.status(400).send('cannot find user')
+        }
 
+        try
+        {
+            if (await bcrypt.compare(req.body.password, user.password))
+            {
+                res.send('login is all good')
+            } else
+            {
+                res.send('incorrect email or incorrect password')
+            }
+        } catch {
+            res.status(500).send('no userconn');
+        }
+
+    })
+})
+
+
+router.post('/users/login', async (req, res) =>
+{
+    
+    let sql = `SELECT * FROM simptab`;
+    let query = db.query(sql,  (err, results) =>
+    {
+        if (err) throw err;
+        var users = results;
+        const user = users.find(user => user.username === req.body.username);
+    })
+
+    const user = users.find(user => user.username === req.body.username);
+
+    if(user == null) {
+        return res.status(400).send('cannot find user')
+    }
+    try
+    {
+        if (await bcrypt.compare(req.body.password, user.password))
+        {
+           res.send('login is all good')
+        } else
+        {
+            res.send('incorrect email or incorrect password')
+       }
+    } catch {
+        res.status(500).send('no userconn');
+    }
 })
 
 

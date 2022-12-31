@@ -10,8 +10,8 @@ const bcrypt = require('bcrypt');
 //console.log(process.env) // remove this after you've confirmed it is working
 //console.log(process.env.SSL)
 
-// const loginHandler = require('./routes/loginhandler');
-// const signupHandler = require('./routes/signup');
+ const loginHandler = require('./routes/loginhandler');
+ const signupHandler = require('./routes/signup');
 // const product = require('./api/product');
 
 // const mysql = require('mysql');
@@ -49,8 +49,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// app.use('/newsignup', signupHandler);
-// app.use('/login', loginHandler);
+ app.use('/newsignup', signupHandler);
+ app.use('/login', loginHandler);
 // app.use("/api/product", product);
 
 
@@ -219,14 +219,47 @@ app.post('/newuser', async (req, res) =>
 
         let query = db.query(sql, post);
         
-            //console.log(result);
         res.send("signup success");
-            // res.sendFile(__dirname + '/public/thanks.html')
-        
 
     } catch {
         res.status(500).send('hashpassfailthen')
     }
+})
+
+// login auth
+app.post('/get/user', async (req, res) =>
+{
+
+    let sql = `SELECT * FROM simptab`;
+    let query = db.query(sql, async (err, results) =>
+    {
+        if (err) throw err;
+        console.log('got z results');
+
+        const users = results;
+        const user = await users.find(user => user.username = req.body.username);
+
+        if (user == null)
+        {
+            return res.status(400).send('cannot find user')
+        }
+
+        try
+        {
+            if (await bcrypt.compare(req.body.password, user.password))
+            {
+                res.send('login is all good')
+                console.log('got z user');
+            } else
+            {
+                res.send('incorrect email or incorrect password')
+                console.log('got nooo user');
+            }
+        } catch {
+            res.status(500).send('no userconn');
+        }
+
+    })
 })
 
 
