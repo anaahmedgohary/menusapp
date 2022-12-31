@@ -58,10 +58,14 @@ export default function LogIn()
           window.alert('Thank you.\n You are now logged in.');
           window.location.href = '/';
 
-        } else if(response.status === 400){
+        } else if (response.status === 400)
+        {
+          console.log(response.body);
           window.alert('Incorrect username or password.\ntry again.');
+          
         } else
         {
+          console.log(response.body);
           window.alert('Incorrect username or password.\ntry again.');
         }
         
@@ -69,6 +73,7 @@ export default function LogIn()
       .catch(error =>
       {
         console.log(error);
+        console.log(response.body);
         window.alert('Incorrect username or password.\ntry again.');
       });
     

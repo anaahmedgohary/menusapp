@@ -78,7 +78,7 @@ router.post('/authuser', async (req, res) =>
                 console.log('got z user');
             } else
             {
-                res.status(400).send('cannot find user')
+                res.status(400).send('password wrong')
                // res.send('incorrect email or incorrect password')
                 console.log('got nooo user');
             }
