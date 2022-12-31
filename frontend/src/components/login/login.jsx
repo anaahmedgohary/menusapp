@@ -66,7 +66,11 @@ export default function LogIn()
         }
         
       })
-      .catch(error => { console.log(error) });
+      .catch(error =>
+      {
+        console.log(error);
+        window.alert('Incorrect username or password.\ntry again.');
+      });
     
     
     // window.location.href = '/';
