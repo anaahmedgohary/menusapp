@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const bcrypt = require('bcrypt');
 
 
 //console.log(process.env) // remove this after you've confirmed it is working
@@ -55,10 +56,23 @@ app.use('/login', loginHandler);
 
 
 
-app.get("/", (req, res) =>
+app.get("/", async (req, res) =>
 {
-    res.send({ "users": ["a", "b", "c", "24"] })
-    // console.log("server connd")
+   // res.send({ "users": ["a", "b", "c", "24"] })
+
+    try
+    {
+        res.json({
+            status: 200,
+            message: "Get data is absolute success",
+        });
+        console.log("server connected!")
+    } catch (error)
+    {
+        console.error(error);
+        res.status(500).send("server error 246")
+    }
+
 })
 
 
@@ -159,6 +173,32 @@ app.post('/mylam/1', async (req, res) =>
         res.send("signup success");
         // res.sendFile(__dirname + '/public/thanks.html')
     });
+
+})
+
+app.post('/newuser', async (req, res) =>
+{
+    try
+    {
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        let username = req.body.username;
+
+        let post = { username, hashedPassword };
+        let sql = `INSERT INTO simptab SET ?`;
+
+        let query = db.query(sql, post, (err, result) =>
+        {
+            if (err) throw err;
+            //console.log(result);
+
+            res.send("signup success");
+            // res.sendFile(__dirname + '/public/thanks.html')
+        });
+
+    } catch {
+        res.status(500).send('hashpassfailthen')
+    }
 
 })
 
