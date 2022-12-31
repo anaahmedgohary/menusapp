@@ -17,7 +17,7 @@ export default function LogIn()
   //const [backendData, setBackendData] = useState([{}]);
 
 
-  const [post, setPost] = useState(null);
+ // const [post, setPost] = useState(null);
 
   // useEffect(() =>
   // {
@@ -42,8 +42,10 @@ export default function LogIn()
       .then((response) =>
       {
         //setPost(res.data);
-        setPost(response.data);
+       // setPost(response.data);
         console.log(response.data);
+        console.log(response);
+        console.log(response.status);
         if (response.status === 200)
         {
           axios.post(`${baseURL}/emails/loginalert`, { username: username })
@@ -57,7 +59,10 @@ export default function LogIn()
           window.location.href = '/';
 
         } else if(response.status === 400){
-          window.alert('Incorrect password.\ntry again.');
+          window.alert('Incorrect username or password.\ntry again.');
+        } else
+        {
+          window.alert('Incorrect username or password.\ntry again.');
         }
         
       })
