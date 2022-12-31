@@ -50,13 +50,17 @@ export default function LogIn()
             .then(response => { console.log(response.data) })
             .catch(error => { console.log(error) })
         }
+
+        // redirect
+        setUsername('');
+        setPassword('');
+        window.alert('Thank you.\n You are now logged in.');
+        window.location.href = '/';
       })
       .catch(error => { console.log(error) });
     
-    setUsername('');
-    setPassword('');
-    window.alert('Thank you.\n You are now logged in.');
-    window.location.href = '/';
+    
+    // window.location.href = '/';
     
   }
 
