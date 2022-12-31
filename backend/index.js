@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 //console.log(process.env.SSL)
 
 const loginHandler = require('./routes/loginhandler');
-const signupHandler = require('/routes/signup');
+const signupHandler = require('./routes/signup');
 // const product = require('./api/product');
 
 // const mysql = require('mysql');
@@ -48,14 +48,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use('/signup', signupHandler);
+app.use('/newsignup', signupHandler);
 app.use('/login', loginHandler);
 // app.use("/api/product", product);
 
 
 
 
-
+app.get("/", (req, res) =>
+{
+    res.send({ "users": ["a", "b", "c", "24"] })
+    // console.log("server connd")
+})
 
 
 app.get("/apiold", (req, res) =>

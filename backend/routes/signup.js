@@ -28,7 +28,7 @@ router.post('/newuser', async (req, res) =>
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
         let username = req.body.username;
-        
+
         let post = { username, hashedPassword };
         let sql = `INSERT INTO simptab SET ?`;
 
