@@ -176,26 +176,7 @@ app.post('/mylam/1', async (req, res) =>
 
 })
 
-app.post('/newuser', async (req, res) =>
-{
-    try
-    {
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        let username = req.body.username;
 
-        let post = { username, hashedPassword };
-        let sql = `INSERT INTO simptab SET ?`;
-
-       // res.send("signup success");
-        res.send(post);
-
-
-    } catch {
-        res.status(500).send('hashpassfailthen')
-    }
-
-})
 
 app.post('/passnewuser', async (req, res) =>
 {
@@ -214,7 +195,6 @@ app.post('/passnewuser', async (req, res) =>
         {
             if (err) throw err;
             //console.log(result);
-
             res.send("signup success");
             // res.sendFile(__dirname + '/public/thanks.html')
         });
@@ -224,27 +204,31 @@ app.post('/passnewuser', async (req, res) =>
     }
 })
 
-app.post('/signup/newuser', async (req, res) =>
+app.post('/newuser', async (req, res) =>
 {
     try
     {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        let username = req.body.username;
 
-        let post = { username, hashedPassword };
+        const body = req.body;
+        let username = body.username;
+        let password = hashedPassword;
+        let post = { username, password };
         let sql = `INSERT INTO simptab SET ?`;
 
-        let query = db.query(sql, post,);
+        let query = db.query(sql, post);
         
-        res.send("signup success 246");
-        // res.sendFile(__dirname + '/public/thanks.html')
+            //console.log(result);
+        res.send("signup success");
+            // res.sendFile(__dirname + '/public/thanks.html')
+        
 
     } catch {
         res.status(500).send('hashpassfailthen')
     }
-
 })
+
 
 
 
