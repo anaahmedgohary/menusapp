@@ -31,7 +31,7 @@ db.connect((err) =>
         throw err;
     };
     console.log('Connected to PlanetScale!');
-    console.log(process.env.port);
+   // console.log(process.env.port);
     //db.end();
 });
 
@@ -187,8 +187,8 @@ app.post('/newuser', async (req, res) =>
         let post = { username, hashedPassword };
         let sql = `INSERT INTO simptab SET ?`;
 
-        res.send("signup success");
-       // res.send(post);
+       // res.send("signup success");
+        res.send(post);
 
 
     } catch {
@@ -208,14 +208,10 @@ app.post('/signup/newuser', async (req, res) =>
         let post = { username, hashedPassword };
         let sql = `INSERT INTO simptab SET ?`;
 
-        let query = db.query(sql, post, (err, result) =>
-        {
-            if (err) throw err;
-            //console.log(result);
-
-            res.send("signup success 246");
-            // res.sendFile(__dirname + '/public/thanks.html')
-        });
+        let query = db.query(sql, post,);
+        
+        res.send("signup success 246");
+        // res.sendFile(__dirname + '/public/thanks.html')
 
     } catch {
         res.status(500).send('hashpassfailthen')
