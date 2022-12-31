@@ -10,8 +10,8 @@ const bcrypt = require('bcrypt');
 //console.log(process.env) // remove this after you've confirmed it is working
 //console.log(process.env.SSL)
 
-const loginHandler = require('./routes/loginhandler');
-const signupHandler = require('./routes/signup');
+// const loginHandler = require('./routes/loginhandler');
+// const signupHandler = require('./routes/signup');
 // const product = require('./api/product');
 
 // const mysql = require('mysql');
@@ -49,8 +49,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use('/newsignup', signupHandler);
-app.use('/login', loginHandler);
+// app.use('/newsignup', signupHandler);
+// app.use('/login', loginHandler);
 // app.use("/api/product", product);
 
 
