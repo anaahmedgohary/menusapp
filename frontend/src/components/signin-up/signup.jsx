@@ -2,6 +2,7 @@ import axios from "axios";
 import React from 'react';
 import "./style/signin.css";
 import { useEffect, useState } from 'react';
+import $ from 'jquery';
 
 
 
@@ -36,7 +37,7 @@ export default function SignUp()
     //const newuser = {username: "llcoolj", password: "icetea"};
 
     axios
-      .post(`${baseURL}/mylam/1`, {username: username, password: password})
+      .post(`${baseURL}/mylam/1`, { username: username, password: password })
       //.then((req, res) =>
       .then((response) =>
       {
@@ -50,7 +51,12 @@ export default function SignUp()
             .catch(error => { console.log(error) })
         }
       })
-      .catch(error => { console.log(error) })
+      .catch(error => { console.log(error) });
+    
+    setUsername('');
+    setPassword('');
+    window.alert('Thank you for signing up.\ncheck your email inbox.');
+    
   }
 
   //if (!backendData) return "No post!";

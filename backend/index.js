@@ -9,15 +9,13 @@ const nodemailer = require('nodemailer');
 //console.log(process.env) // remove this after you've confirmed it is working
 //console.log(process.env.SSL)
 
-const product = require('./api/product');
+const loginHandler = require('./routes/loginhandler');
+const signupHandler = require('/routes/signup');
+// const product = require('./api/product');
 
 // const mysql = require('mysql');
 const mysql = require('mysql2');
 const { response } = require("express");
-
-
-
-// const routerHandler = require('./routes/handler');
 
 require('dotenv').config();
 const db = mysql.createConnection(process.env.DATABASE_URL);
@@ -50,8 +48,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// app.use('/', routerHandler);
-app.use("/api/product", product);
+app.use('/signup', signupHandler);
+app.use('/login', loginHandler);
+// app.use("/api/product", product);
 
 
 

@@ -11,12 +11,12 @@ router.get("/", async (req, res) =>
     {
         res.json({
             status: 200,
-            message: "Get data is success",
+            message: "Get data is absolute success",
         }); 
     } catch (error)
     {
         console.error(error);
-        return res.status(500).send("server error")
+        return res.status(500).send("server error 246")
     }
 })
 

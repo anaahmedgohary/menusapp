@@ -15,4 +15,17 @@ router.post("/addmanlam", (req, res) =>
     res.end('NA')
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
