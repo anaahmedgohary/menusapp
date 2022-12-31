@@ -197,6 +197,32 @@ app.post('/newuser', async (req, res) =>
 
 })
 
+app.post('/signup/newuser', async (req, res) =>
+{
+    try
+    {
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        let username = req.body.username;
+
+        let post = { username, hashedPassword };
+        let sql = `INSERT INTO simptab SET ?`;
+
+        let query = db.query(sql, post, (err, result) =>
+        {
+            if (err) throw err;
+            //console.log(result);
+
+            res.send("signup success 246");
+            // res.sendFile(__dirname + '/public/thanks.html')
+        });
+
+    } catch {
+        res.status(500).send('hashpassfailthen')
+    }
+
+})
+
 
 
 
