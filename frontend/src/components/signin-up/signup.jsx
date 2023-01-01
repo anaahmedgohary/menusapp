@@ -94,24 +94,21 @@ export default function SignUp()
             </div>
           </form>
         </div>
+
+        <div>
+          <a
+            className="forgot-pass"
+            href="/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="login page"
+          >
+            Already has account!
+          </a>
+        </div>
       </div>
 
-      {/* <div className='displayNode'>
-        <div>
-          {(typeof backendData.users === 'undefined') ?
-            (<h2>Loading</h2>) :
-              (backendData.users.map((user, i) => (<p key={i}>{user}</p>)
-              )
-             )
-          }
-        </div>
-      </div> */}
-
-      {/* <div>
-        <h1>{post.username}</h1>
-        <p>{post.password}</p>
-        <button onClick={handelSubmit}>Create Post</button>
-      </div> */}
+      
 
 
     </div>

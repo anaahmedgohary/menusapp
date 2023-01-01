@@ -105,7 +105,7 @@ export default function LogIn()
         <div>
           <a
             className="forgot-pass"
-            href="./forgotpass"
+            href="/recoverpassword"
             target="_blank"
             rel="noopener noreferrer"
           >

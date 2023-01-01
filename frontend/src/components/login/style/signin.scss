@@ -74,8 +74,11 @@ $guccired01: rgba(168, 43, 17, 0.2);
     }
 
     .forgot-pass {
-        font-size: 0.6rem;
+        font-size: 1rem;
         text-decoration: none;
         color: rgba(141, 62, 62, 0.989);
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }

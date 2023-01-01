@@ -37,7 +37,10 @@
   margin-top: 14%;
 }
 .signinDiv .forgot-pass {
-  font-size: 0.6rem;
+  font-size: 1rem;
   text-decoration: none;
   color: rgba(141, 62, 62, 0.989);
+}
+.signinDiv .forgot-pass:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=signin.css.map */

@@ -13,6 +13,7 @@ const bcrypt = require('bcrypt');
 const loginHandler = require('./routes/loginhandler');
 const signupHandler = require('./routes/signup');
 const emailSender = require('./routes/emails');
+const recoverPass = require('./routes/recoverpassword');
 // const product = require('./api/product');
 
 // const mysql = require('mysql');
@@ -49,6 +50,7 @@ app.use(bodyParser.json());
 app.use('/signup', signupHandler);
 app.use('/emails', emailSender);
 app.use('/login', loginHandler);
+app.use('/recoverpass', recoverPass);
  
 // app.use("/api/product", product);
 

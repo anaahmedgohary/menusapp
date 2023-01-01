@@ -9,7 +9,9 @@ import Footer from "./components/footer/footer";
 import Hompage from "./components/homepage/hompage";
 import SignUp from "./components/signin-up/signup";
 import LogIn from "./components/login/login";
+import RecoverPass from "./components/recoverpassword/recoverpass";
 import Restaurants from "./components/restaurants/restaurants";
+// recoverpassword
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route path='/' element={<Hompage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path='/recoverpassword' element={<RecoverPass />} />
         <Route path='/restaurants' element={<Restaurants />} />
       </Routes>
       <Footer />
