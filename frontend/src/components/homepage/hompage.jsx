@@ -17,8 +17,8 @@ export default function Hompage() {
       <div>
         <p className="welcom-line">Welcome to Menus Zag!</p>
       </div>
-      <div className="landing">
-        <div className="paragraphs">
+      <div className="landing gap-5">
+        <div className="paragraphs col-5 sm-row">
           <p>
             We are proud to provide all the Menus you will ever need in the city
             of Zagazig. Our database include restaurans, cafes, bakeries and
@@ -35,7 +35,7 @@ export default function Hompage() {
             </a>
           </div>
         </div>
-        <div id="bodyImgs">
+        <div id="bodyImgs" className=''>
           <p>Featured Menus</p>
           <div className="menusGallery">
             <img

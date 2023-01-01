@@ -77,7 +77,7 @@ export default function LogIn()
   return (
     <div className="container">
       <div id="signupDiv">
-        <h6>Log in</h6>
+        <p className="text-4xl font-bold underline text-center">Log in</p>
         <div>
           <form onSubmit={handelSubmit}
             id="signinForm"
