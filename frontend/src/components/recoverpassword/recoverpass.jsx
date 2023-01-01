@@ -55,7 +55,7 @@ export default function RecoverPass()
             .catch(error =>
             {
                 console.log(error);
-                window.alert('Cannot find user');
+                window.alert('catch error in frontend');
             });
 
         

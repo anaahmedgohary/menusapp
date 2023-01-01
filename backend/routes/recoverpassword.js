@@ -62,16 +62,8 @@ router.post('/confirmemail', async (req, res) =>
         {
             let Password = await user.password;
             recoverpassword(user, Password);
-            if (Password)
-            {
-                res.status(200).res.send('user confirmed');
-                console.log('user confirmed');
-            } else
-            {
-                res.status(400).send('Error occured')
-                // res.send('incorrect email or incorrect password')
-                console.log('Try again later');
-            }
+            res.status(200).res.send('user confirmed');
+
         } catch {
             res.status(500).send('Error occured. Try again later.');
         }

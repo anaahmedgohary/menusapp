@@ -106,8 +106,7 @@ export default function LogIn()
           <a
             className="forgot-pass"
             href="/recoverpassword"
-            target="_blank"
-            rel="noopener noreferrer"
+            
           >
             forgot password ?
           </a>
