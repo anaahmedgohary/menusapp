@@ -76,11 +76,11 @@ export default function LogIn()
 
   return (
     <div className="container">
-      <div id="signupDiv">
-        <p className="text-4xl font-bold underline text-center">Log in</p>
+      <div id="signupDiv" className="signinDiv">
+        <h6>Log in</h6>
         <div>
           <form onSubmit={handelSubmit}
-            id="signinForm"
+            className="signinForm"
           >
             <label className="label-signin" htmlFor="email">
               E-mail
@@ -96,7 +96,6 @@ export default function LogIn()
               <button
                 className="submit-btn btn btn-success"
                 type="submit"
-                id='submit-btn'
                 >
                 Log in
               </button>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
  import { useState } from 'react';
 import './style/homepage.css';
 import $ from 'jquery';
@@ -10,15 +10,65 @@ export default function Hompage() {
         $("#menuViewer").css("display", "flex");
         setImgSrc(e.target.src);
         //console.log(e.target.src);
+  }
+
+  useEffect(() =>
+  {
+    //nextImgBtn();
+  }, [imgSrc]);
+
+
+  function prevImgBtn()
+  {
+    let currentimgSrc = imgSrc;
+    let galimags = document.querySelectorAll('.bodyImg');
+    let galimagsArr = Array.from(galimags);
+    let currentImg = galimagsArr.find(img => img.src == currentimgSrc);
+    let currentImgIndex = galimagsArr.indexOf(currentImg);
+    if (currentImgIndex > 0)
+    {
+      let nextImageIndex = currentImgIndex - 1;
+      let nextImage = galimagsArr[nextImageIndex];
+      let nextImgSrc = nextImage.src;
+      setImgSrc(nextImgSrc);
+    } else
+    {
+      let nextImage = galimagsArr[7];
+      let nextImgSrc = nextImage.src;
+      setImgSrc(nextImgSrc);
     }
+
+  }
+
+  function nextImgBtn()
+  {
+    let currentimgSrc = imgSrc;
+    let galimags = document.querySelectorAll('.bodyImg');
+    let galimagsArr = Array.from(galimags);
+    let currentImg = galimagsArr.find(img => img.src == currentimgSrc);
+    let currentImgIndex = galimagsArr.indexOf(currentImg);
+    if (currentImgIndex < 7)
+    {
+      let nextImageIndex = currentImgIndex + 1;
+      let nextImage = galimagsArr[nextImageIndex];
+      let nextImgSrc = nextImage.src;
+      setImgSrc(nextImgSrc);
+    } else
+    {
+      let nextImage = galimagsArr[0];
+      let nextImgSrc = nextImage.src;
+      setImgSrc(nextImgSrc);
+    }
+
+  }
 
   return (
     <div className="container">
       <div>
         <p className="welcom-line">Welcome to Menus Zag!</p>
       </div>
-      <div className="landing gap-5">
-        <div className="paragraphs col-5 sm-row">
+      <div className="landing">
+        <div className="paragraphs">
           <p>
             We are proud to provide all the Menus you will ever need in the city
             of Zagazig. Our database include restaurans, cafes, bakeries and
@@ -26,7 +76,7 @@ export default function Hompage() {
           </p>
           <p></p>
           <p>We keep our menus updated at least once a week.</p>
-          <div className="signupDiv">
+          <div className="signupIn">
             <a className="signupLink" href="/signup">
               Sign Up
             </a>
@@ -90,19 +140,26 @@ export default function Hompage() {
         </div>
       </div>
 
-      <div id="menuViewer">
-        <button
-          id="closeView"
-          className="btn btn-danger btn-sm"
-          title="Close"
-          onClick={() => {
-            $("#menuViewer").hide();
-          }}
-        >
-          X
-        </button>
-
+      <div id="menuViewer"
+        onClick={(e) =>
+        { 
+          let modal = document.getElementById('menuViewer');
+          (e.target == modal) ? $("#menuViewer").hide() : false;
+        }}>
         <div>
+          <button
+            id="closeView"
+            className="btn btn-danger btn-sm"
+            title="Close"
+            onClick={() => {
+              $("#menuViewer").hide();
+            }}
+          >
+            X
+          </button>
+        </div>
+
+        <div className='inmodalDiv'>
           <img
             id="clickedImg"
             className="viewerImg"
@@ -110,7 +167,14 @@ export default function Hompage() {
             alt="selected img"
           />
         </div>
-        <div className="infobar">
+
+        <div className='galNavBtn galPrevBtn inmodalDiv'>
+          <button title='PREVIOUS' onClick={prevImgBtn}>
+            <i className="fa-solid fa-chevron-left fa-3x"></i>
+          </button>
+        </div>
+
+        <div className="infobar inmodalDiv">
           <span>Name of Menu</span>
 
           <p>
@@ -123,6 +187,13 @@ export default function Hompage() {
             nisi molestiae explicabo.
           </span>
         </div>
+
+        <div className='galNavBtn galnextBtn inmodalDiv'>
+          <button title='NEXT' onClick={nextImgBtn}>
+            <i className="fa-solid fa-chevron-right fa-3x"></i>
+          </button>
+        </div>
+
       </div>
 
       

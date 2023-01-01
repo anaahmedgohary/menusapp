@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from 'react';
-import "./style/signin.css";
+import "./style/signup.css";
 import { useEffect, useState } from 'react';
 import $ from 'jquery';
 
@@ -68,11 +68,11 @@ export default function SignUp()
 
   return (
     <div className="container">
-      <div id="signupDiv">
+      <div className="signupDiv">
         <h6>Sign Up</h6>
         <div>
           <form onSubmit={handelSubmit}
-            id="signinForm"
+            className="signupForm"
           >
             <label className="label-signin" htmlFor="email">
               E-mail
@@ -86,10 +86,9 @@ export default function SignUp()
               onChange={(e) => { setPassword(e.target.value) }}/>
             <div>
               <button
-                className="submit-btn btn btn-success"
+                className="submit-btn btn btn-info"
                 type="submit"
-                id='submit-btn'
-                >
+               >
                 Sign Up
               </button>
             </div>
