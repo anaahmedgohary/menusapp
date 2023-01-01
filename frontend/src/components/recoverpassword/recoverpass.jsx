@@ -48,15 +48,22 @@ export default function RecoverPass()
                         .then(response => { console.log(response.data) })
                         .catch(error => { console.log(error) })
                 }
-            })
-            .catch(error => { console.log(error) });
 
-        setUsername('');
+                setUsername('');
+                window.alert(`${response.body}`);
+            })
+            .catch(error =>
+            {
+                console.log(error);
+                window.alert('Cannot find user');
+            });
+
+        
        // setPassword('');
-        window.alert('Thank you for signing up.\ncheck your email inbox.');
+       // window.alert('Thank you for signing up.\ncheck your email inbox.');
 
         // redirect("/login");
-        window.location.href = '/login';
+       // window.location.href = '/login';
 
     }
 
