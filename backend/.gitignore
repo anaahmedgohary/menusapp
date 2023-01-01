@@ -11,6 +11,7 @@
 # production
 /build
 localdev.js
+test.js
 
 # misc
 .DS_Store

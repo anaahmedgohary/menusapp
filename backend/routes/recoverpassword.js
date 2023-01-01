@@ -5,9 +5,10 @@ const nodemailer = require('nodemailer');
 
 // const mysql = require('mysql');
 const mysql = require('mysql2');
+const { response } = require("express");
 
 require('dotenv').config();
-const db = mysql.createConnection(process.env.DATABASE_URL);
+ const db = mysql.createConnection(process.env.DATABASE_URL);
 
 // local dev
 // const db = mysql.createConnection({
@@ -56,25 +57,23 @@ router.post('/confirmemail', async (req, res) =>
         {
             console.log('cannot find user');
             return res.status(400).send('cannot find user')
-        }
+        };
 
-        try
-        {
-            let Password = await user.password;
-            recoverpassword(user, Password);
-            console.log('Password sent to your email');
-            res.status(200).send('user confirmed and Email sent');
+        const foundUser = await user.username;
+        let recoverdPassword = await user.password;
 
-        } catch {
-            res.status(500).send('Error occured. Try again later.');
-        }
+       // res.send({ foundUser, recoverdPassword })
+        
+        recoverpassword(foundUser, recoverdPassword)
+            .then(response => res.status(200).send(response.message))
+            .catch(error => res.status(500).send(error.message))
 
     })
 })
 
 
 // Recover forgotten Password
-function recoverpassword(user, password)
+async function recoverpassword(user, password)
 {
     return new Promise((resolve, reject) =>
     {
