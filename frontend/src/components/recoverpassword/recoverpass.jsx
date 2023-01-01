@@ -42,12 +42,12 @@ export default function RecoverPass()
             .then((response) =>
             {
                 console.log(response.data);
-                if (response.status === 200)
-                {
-                    axios.post(`${baseURL}/emails/passrecovery`, { username: username })
-                        .then(response => { console.log(response.data) })
-                        .catch(error => { console.log(error) })
-                }
+                // if (response.status === 200)
+                // {
+                //     axios.post(`${baseURL}/emails/passrecovery`, { username: username })
+                //         .then(response => { console.log(response.data) })
+                //         .catch(error => { console.log(error) })
+                // }
 
                 setUsername('');
                 window.alert(`${response.body}`);

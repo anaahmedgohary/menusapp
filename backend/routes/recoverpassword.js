@@ -7,16 +7,16 @@ const nodemailer = require('nodemailer');
 const mysql = require('mysql2');
 
 require('dotenv').config();
-// const db = mysql.createConnection(process.env.DATABASE_URL);
+const db = mysql.createConnection(process.env.DATABASE_URL);
 
 // local dev
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'pma',
-    password: '',
-    database: 'node24db' //table tester01
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'pma',
+//     password: '',
+//     database: 'node24db' //table tester01
 
-});
+// });
 
 db.connect((err) =>
 {
@@ -43,7 +43,7 @@ router.get('/', (req, res) =>
 router.post('/confirmemail', async (req, res) =>
 {
 
-    let sql = `SELECT * FROM tester01`; // tester01 simptab
+    let sql = `SELECT * FROM simptab`; // tester01 simptab
     let query = db.query(sql, async (err, results) =>
     {
         if (err) throw err;
