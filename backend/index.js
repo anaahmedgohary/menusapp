@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 // const nodemailer = require('nodemailer');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 
 //console.log(process.env) // remove this after you've confirmed it is working
