@@ -11,24 +11,12 @@ import $ from 'jquery';
 //const baseURL = "http://localhost:4000";
 const baseURL = "https://menusappback.vercel.app";
 
-
 export default function RecoverPass()
 {
 
-    //const [backendData, setBackendData] = useState([{}]);
-
-
-    // useEffect(() =>
-    // {
-    //   axios.get(`${baseURL}/api/product`).then((response)=> {
-    //     setPost(response.data)
-    //   })
-    // },[])
-
-    // console.log(post);
 
     const [username, setUsername] = useState("");
-  //  const [password, setPassword] = useState("");
+    const [password, setPassword] = useState("");
 
 
     const handelSubmit = (e) =>
@@ -37,25 +25,28 @@ export default function RecoverPass()
         //const newuser = {username: "llcoolj", password: "icetea"};
 
         axios
-            .post(`${baseURL}/recoverpass/confirmemail`, { username: username })
+            .post(`${baseURL}/resetpass/finduser/`, { username: username })
             //.then((req, res) =>
             .then((response) =>
             {
-                console.log(response.data);
-                // if (response.status === 200)
-                // {
-                //     axios.post(`${baseURL}/emails/passrecovery`, { username: username })
-                //         .then(response => { console.log(response.data) })
-                //         .catch(error => { console.log(error) })
-                // }
+                if (response.status === 200)
+                {
+                    setUsername(response.data);
+                    $('#email-form').hide();
+                    $('#password-form').show();
+                    // axios.post(`${baseURL}/emails/passrecovery`, { username: username })
+                    //     .then(response => { console.log(response.data) })
+                    //     .catch(error => { console.log(error) })
+                }
 
-                setUsername('');
-                window.alert(`${response.body}`);
+                //setUsername('');
+               // window.alert(`${response.data}`);
+               // console.log(username);
             })
             .catch(error =>
             {
                 console.log(error);
-                window.alert('catch error in frontend');
+                window.alert('No User Was Found with this Email.');
             });
 
         
@@ -67,15 +58,40 @@ export default function RecoverPass()
 
     }
 
+    function resetPasswordHandler(e)
+    {
+        e.preventDefault();
+        axios
+            .post(`${baseURL}/resetpass/updateuser/`, { username, password })
+            .then((response) =>
+            {
+                if (response.status === 200)
+                {
+                    setUsername('');
+                    setPassword('');
+                    window.alert(`Password was Reset Successfully`);
+                    window.location.href = '/login';
+                }
+            })
+            .catch((error) =>
+            {
+                setUsername('');
+                setPassword('');
+                console.log(error);
+                window.alert('Some Error Was Encountered!');
+                window.location.href = '/login';
+            })
+    }
+
     //if (!backendData) return "No post!";
 
 
     return (
         <div className="container">
             <div className="signupDiv">
-                <h6>Sign Up</h6>
+                <h6>Password Recovery</h6>
                 <div>
-                    <form onSubmit={handelSubmit}
+                    <form id="email-form" onSubmit={handelSubmit}
                         className="signupForm"
                     >
                         <label className="label-signin" htmlFor="email">
@@ -93,10 +109,36 @@ export default function RecoverPass()
                                 className="submit-btn btn btn-info"
                                 type="submit"
                             >
-                                Recover Password
+                                Reset Password
                             </button>
                         </div>
                     </form>
+
+
+                    <form id="password-form" style={{display:"none"}} onSubmit={resetPasswordHandler}
+                        className="signupForm"
+                    >
+                        {/* <label className="label-signin" htmlFor="email">
+                            New Password
+                        </label>
+                        <input name="username" id="username" required value={username}
+                            onChange={(e) => { setUsername(e.target.value) }} /> */}
+                        
+                        <label className="label-signin" htmlFor="password">
+                            NEW Password
+                        </label>
+                        <input type="text" name="password" id="password" required value={password}
+                            onChange={(e) => { setPassword(e.target.value) }} />
+                        <div>
+                            <button
+                                className="submit-btn btn btn-info"
+                                type="submit"
+                            >
+                                Confirm Reset
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
 
                 <div>
