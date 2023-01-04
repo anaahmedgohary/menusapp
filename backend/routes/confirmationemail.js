@@ -86,13 +86,19 @@ router.post('/confirmationemails', async (req, res) =>
 
 
 // change user verification status
-router.get(`/:token`, async (req, res) =>
+router.get(`/:token`, authenticateToken, async (req, res) =>
 {
+    // from ben-awad
+    const token = req.headers['x-token'];  
+
+    // from kyle
+    let username = req.username
+
     try
     {
-        const user = jwt.verify(req.params.token, EMAIL_SECRET);
+       // const user = jwt.verify(req.params.token, EMAIL_SECRET);
        // const username = await user.username;
-        const email = user
+        const email = username
 
         let updateSql = `UPDATE simptab SET verified = '1' WHERE username = '${email}'`;
         let query = db.query(updateSql, async (err, results) =>
@@ -103,13 +109,29 @@ router.get(`/:token`, async (req, res) =>
 
         // res.redirect('http://exmple.com'+req.url)
        // res.status(200).send('Updated Verification Status');
-        res.status(200).redirect('https://menusapp.vercel.app/login')
+       // res.status(200).redirect('https://menusapp.vercel.app/login')
+        return res.redirect('https://menusapp.vercel.app/login');
     } catch {
         res.status(500).send('failed to verify!');
     }
 })
 
+// from kyle
+function authenticateToken(req, res, next)
+{  
+    const authHeader = req.headers['authorization']; // Bearer TOKEN
+    const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
 
+    if (token == null) return res.status(401).send();
+
+    jwt.verify(token, EMAIL_SECRET, (err, username) =>
+    {
+        if (err) return res.status(403).send();
+        req.username = username;
+        next()
+    })
+
+}
 
 
 
