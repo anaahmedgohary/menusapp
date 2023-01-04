@@ -75,6 +75,8 @@ router.post('/confirmationemails', async (req, res) =>
             };
 
             res.send("Confirmation Email Sent!")
+            // response.setHeader(name, value)
+           // res.setHeader('authorization', `Bearer ${confirmationToken}`)
         })
 
 
@@ -86,19 +88,21 @@ router.post('/confirmationemails', async (req, res) =>
 
 
 // change user verification status
-router.get(`/:token`, authenticateToken, async (req, res) =>
+
+
+router.get('/:token' , async (req, res) =>
 {
     // from ben-awad
-    const token = req.headers['x-token'];  
+   // const token = req.headers['x-token'];  
 
     // from kyle
-    let username = req.username
+   // let username = req.username
 
     try
     {
-       // const user = jwt.verify(req.params.token, EMAIL_SECRET);
+        const user = jwt.verify(req.params.token, EMAIL_SECRET);
        // const username = await user.username;
-        const email = username
+        const email = user
 
         let updateSql = `UPDATE simptab SET verified = '1' WHERE username = '${email}'`;
         let query = db.query(updateSql, async (err, results) =>
@@ -110,7 +114,8 @@ router.get(`/:token`, authenticateToken, async (req, res) =>
         // res.redirect('http://exmple.com'+req.url)
        // res.status(200).send('Updated Verification Status');
        // res.status(200).redirect('https://menusapp.vercel.app/login')
-        return res.redirect('https://menusapp.vercel.app/login');
+        console.log('Updated Verification Status 2');
+        return res.redirect('https://menusapp.vercel.app/login/');
     } catch {
         res.status(500).send('failed to verify!');
     }
