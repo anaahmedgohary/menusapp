@@ -48,7 +48,7 @@ router.post('/confirmationemails', async (req, res) =>
 
     try
     {
-        const userEmail = req.body.username;
+        const userEmail = await req.body.username;
 
         const confirmationToken = jwt.sign(userEmail, EMAIL_SECRET);
         //X--X const url = `https://menusapp.vercel.app/confirmationemail/${confirmationToken}`;
@@ -68,7 +68,7 @@ router.post('/confirmationemails', async (req, res) =>
             from: 'gogoahmed13@gmail.com',
             to: userEmail,
             subject: 'Confirm Your Email',
-            html: `Please click this Link to Verify your email: <a href="${url}">${url}</a>`,
+            html: `Thank you ${email} and welcome to city menus app. Please click this Link to Verify your email: <a href="${url}">VERIFY EMAIL</a>`,
         };
         transporter.sendMail(mail_configs, (error, info) =>
         {

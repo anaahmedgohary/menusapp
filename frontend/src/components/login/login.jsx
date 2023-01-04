@@ -85,12 +85,12 @@ export default function LogIn()
             <label className="label-signin" htmlFor="email">
               E-mail
             </label>
-            <input type="email" name="username" id="username" required value={username}
+            <input type="email" name="username" id="username" required
               onChange={(e) => { setUsername(e.target.value)}} />
             <label className="label-signin" htmlFor="password">
               Password
             </label>
-            <input type="password" name="password" id="password" required value={password}
+            <input type="password" name="password" id="password" required
               onChange={(e) => { setPassword(e.target.value) }}/>
             <div>
               <button

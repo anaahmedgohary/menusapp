@@ -15,20 +15,6 @@ const baseURL = "https://menusappback.vercel.app";
 export default function SignUp()
 {
   
-  //const [backendData, setBackendData] = useState([{}]);
-
-
-  const [post, setPost] = useState(null);
-
-  // useEffect(() =>
-  // {
-  //   axios.get(`${baseURL}/api/product`).then((response)=> {
-  //     setPost(response.data)
-  //   })
-  // },[])
-
- // console.log(post);
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -42,28 +28,28 @@ export default function SignUp()
       //.then((req, res) =>
       .then((response) =>
       {
-        //setPost(res.data);
-        setPost(response.data);
         console.log(response.data);
         if (response.status === 200)
         {
-          axios.post(`${baseURL}/emails/welcome`, { username: username })
+         // axios.post(`${baseURL}/emails/welcome`, { username: username })
+          axios.post(`${baseURL}/confirmationemail/confirmationemails`, { username: username })
             .then(response =>
             {
               console.log(response.data)
-              axios.post(`${baseURL}/confirmationemail/confirmationemails`, { username: username })
             })
             .catch(error => { console.log(error) })
-        }
+        };
+        setUsername('');
+        setPassword('');
+        window.alert('Thank you for signing up.\ncheck your email inbox.');
+        // redirect("/login");
+        window.location.href = '/login';
       })
-      .catch(error => { console.log(error) });
-    
-    setUsername('');
-    setPassword('');
-    window.alert('Thank you for signing up.\ncheck your email inbox.');
-
-   // redirect("/login");
-    window.location.href = '/login';
+      .catch(error =>
+      {
+        console.log(error);
+        window.alert("An Error Occuered Please Try Again." + error)
+      });
 
   }
 
@@ -81,12 +67,12 @@ export default function SignUp()
             <label className="label-signin" htmlFor="email">
               E-mail
             </label>
-            <input type="email" name="username" id="username" required value={username}
+            <input type="email" name="username" id="username" required
               onChange={(e) => { setUsername(e.target.value)}} />
             <label className="label-signin" htmlFor="password">
               Password
             </label>
-            <input type="password" name="password" id="password" required value={password}
+            <input type="password" name="password" id="password" required
               onChange={(e) => { setPassword(e.target.value) }}/>
             <div>
               <button
