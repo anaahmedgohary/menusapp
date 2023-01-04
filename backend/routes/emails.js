@@ -123,11 +123,92 @@ function recoverpassword(email)
     })
 }
 
+// password change request
+router.post('/passchangereq', async (req, res) =>
+{
+    const body = req.body;
+    let username = body.username;
+
+    passChangeReq(username)
+        .then(response => res.send(response.message))
+        .catch(error => res.status(500).send(error.message))
+});
+
+function passChangeReq(email)
+{
+    return new Promise((resolve, reject) =>
+    {
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'gogoahmed13@gmail.com',
+                pass: 'ksgmffptgcaktzor'
+                // app pass google 'ksgmffptgcaktzor'
+            }
+        });
+
+        const mail_configs = {
+            from: 'gogoahmed13@gmail.com',
+            to: email,
+            subject: 'Password Change Request',
+            text: `Dear ${email}. There was an attempt to change your password.`
+        };
+
+        transporter.sendMail(mail_configs, (error, info) =>
+        {
+            if (error)
+            {
+                console.log(error)
+                return reject({ message: `An error has happened!` })
+            }
+            return resolve({ message: `Email sent succesfuly!` })
+        });
+    })
+}
 
 
+// password was changed
+router.post('/passwaschanged', async (req, res) =>
+{
+    const body = req.body;
+    let username = body.username;
 
+    passwordChanged(username)
+        .then(response => res.send(response.message))
+        .catch(error => res.status(500).send(error.message))
+});
 
+function passwordChanged(email)
+{
+    return new Promise((resolve, reject) =>
+    {
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'gogoahmed13@gmail.com',
+                pass: 'ksgmffptgcaktzor'
+                // app pass google 'ksgmffptgcaktzor'
+            }
+        });
 
+        const mail_configs = {
+            from: 'gogoahmed13@gmail.com',
+            to: email,
+            subject: 'Your Password Was Changed',
+            text: `Dear ${email}. Your Password Was Changed Successfully.`
+        };
+
+        transporter.sendMail(mail_configs, (error, info) =>
+        {
+            if (error)
+            {
+                console.log(error)
+                return reject({ message: `An error has happened!` })
+            }
+            return resolve({ message: `Email sent succesfuly!` })
+        });
+    })
+}
 
 
 

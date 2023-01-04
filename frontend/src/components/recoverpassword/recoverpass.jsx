@@ -46,9 +46,9 @@ export default function RecoverPass()
                     setUsername(response.data);
                     $('#email-form').hide();
                     $('#password-form').show();
-                    // axios.post(`${baseURL}/emails/passrecovery`, { username: username })
-                    //     .then(response => { console.log(response.data) })
-                    //     .catch(error => { console.log(error) })
+                    axios.post(`${baseURL}/emails/passchangereq`, { username: username })
+                        .then(response => { console.log(response.data) })
+                        .catch(error => { console.log(error) })
                 }
 
                 //setUsername('');
@@ -79,6 +79,10 @@ export default function RecoverPass()
             {
                 if (response.status === 200)
                 {
+                    axios.post(`${baseURL}/emails/passwaschanged`, { username: username })
+                        .then(response => { console.log(response.data) })
+                        .catch(error => { console.log(error) });
+                    
                     setUsername('');
                     setPassword('');
                     confirmPass.value = '';
