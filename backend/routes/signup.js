@@ -47,9 +47,9 @@ router.post('/newuser', async (req, res) =>
         // local
         let sql = `INSERT INTO simptab SET ?`;
 
-        let query = db.query(sql, post)
+        let query = db.query(sql, post);
 
-        res.send("done with new form");
+        res.status(200).send("done with new form");
 
     } catch {
         res.status(500).send('no new form')

@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
 
 // const mysql = require('mysql');
 const mysql = require('mysql2');
-const { response } = require("express");
 
 require('dotenv').config();
  const db = mysql.createConnection(process.env.DATABASE_URL);
@@ -40,8 +40,10 @@ router.get('/', (req, res) =>
 });
 
 
+// jsonwebtokens confirmation emails
+const EMAIL_SECRET = 'ajsdklfjaskljgklasjoiquw01982310nlksas;sdlkfj';
 
-router.post('/confirmemail', async (req, res) =>
+router.post('/confirmationemails', async (req, res) =>
 {
 
     let sql = `SELECT * FROM simptab`; // tester01 simptab
@@ -53,20 +55,48 @@ router.post('/confirmemail', async (req, res) =>
         const users = results;
         const user = await users.find(user => user.username === req.body.username);
 
-        if (user == null)
-        {
-            console.log('cannot find user');
-            return res.status(400).send('cannot find user')
+        // if (user == null)
+        // {
+        //     console.log('cannot find user');
+        //     return res.status(400).send('cannot find user')
+        // };
+
+        const confirmationToken = jwt.sign(user, EMAIL_SECRET);
+        const url = `https://menusapp.vercel.app/confirmationemail/${confirmationToken}`;
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'gogoahmed13@gmail.com',
+                pass: 'ksgmffptgcaktzor' // app pass google
+            }
+        });
+        const mail_configs = {
+            from: 'gogoahmed13@gmail.com',
+            to: user.username,
+            subject: 'Confirm Your Email',
+            html: `Please click this email to confirm your email: <a href="${url}">${url}</a>`,
         };
 
-        const foundUser = await user.username;
-        let recoverdPassword = await user.password;
+        transporter.sendMail(mail_configs, (error, info) =>
+        {
+            if (error)
+            {
+                console.log(error);
+                return res.status(500).send("Error Sending Email");
+            };
 
-       // res.send({ foundUser, recoverdPassword })
+            res.send("Confirmation Email Sent!")
+        })
+
+        // const foundUserName = await user.username;
+        // let recoverdPassword = await user.password;
+
+       // res.send({ foundUserName, recoverdPassword })
         
-        recoverpassword(foundUser, recoverdPassword)
-            .then(response => res.status(200).send(response.message))
-            .catch(error => res.status(500).send(error.message))
+        // recoverpassword(foundUserName, recoverdPassword)
+        //     .then(response => res.status(200).send(response.message))
+        //     .catch(error => res.status(500).send(error.message))
 
     })
 })

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
 
 
 
@@ -209,6 +210,20 @@ function passwordChanged(email)
         });
     })
 }
+
+
+// confirmation email
+const EMAIL_SECRET = 'ajsdklfjaskljgklasjoiquw01982310nlksas;sdlkfj';
+
+router.post('/emailconfirmation', async (req, res) =>
+{
+    const body = req.body;
+    let username = body.username;
+
+    passwordChanged(username)
+        .then(response => res.send(response.message))
+        .catch(error => res.status(500).send(error.message))
+});
 
 
 

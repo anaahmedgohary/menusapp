@@ -12,6 +12,8 @@
 /build
 localdev.js
 test.js
+axios guide.js
+Local Server 100.js
 
 # misc
 .DS_Store

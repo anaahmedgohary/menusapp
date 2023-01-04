@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 const loginHandler = require('./routes/loginhandler');
 const signupHandler = require('./routes/signup');
 const emailSender = require('./routes/emails');
-// const recoverPass = require('./routes/recoverpassword');
+const confirmationEmails = require('./routes/confirmationemail');
 const resetPass = require('./routes/resetpassword');
 // const product = require('./api/product');
 
@@ -51,6 +51,7 @@ app.use(bodyParser.json());
 app.use('/signup', signupHandler);
 app.use('/emails', emailSender);
 app.use('/login', loginHandler);
+app.use('/confirmationemail', confirmationEmails);
 app.use('/resetpass', resetPass);
 //app.use('/recoverpass', recoverPass);
  
