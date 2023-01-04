@@ -114,7 +114,7 @@ router.get('/:token' , async (req, res) =>
         {
             if (err) throw err;
             console.log('Updated Verification Status');
-            res.redirect('https://menusapp.vercel.app/login/');
+            res.redirect('https://menusapp.vercel.app/login');
         });
 
         // res.redirect('http://exmple.com'+req.url)
