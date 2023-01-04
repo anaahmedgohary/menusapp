@@ -43,7 +43,7 @@ router.get('/', (req, res) =>
 // jsonwebtokens confirmation emails
 const EMAIL_SECRET = 'ajsdklfjaskljgklasjoiquw01982310nlksas;sdlkfj';
 
-router.post('/confirmationemails', async (req, res) =>
+router.post('/k', async (req, res) =>
 {
 
     let sql = `SELECT * FROM simptab`; // tester01 simptab
@@ -134,6 +134,29 @@ async function recoverpassword(user, password)
         });
     })
 };
+
+// change user verification status
+router.get(`/:token`, async (req, res) =>
+{
+    try
+    {
+        const user = jwt.verify(req.params.token, EMAIL_SECRET);
+        const username = await user.username;
+
+        let updateSql = `UPDATE simptab SET verified = '1' WHERE username = '${username}'`;
+        let query = db.query(updateSql, async (err, results) =>
+        {
+            if (err) throw err;
+            console.log('Updated Verification Status');
+        });
+
+        // res.redirect('http://exmple.com'+req.url)
+       // res.status(200).send('Updated Verification Status');
+        res.status(200).redirect('https://menusapp.vercel.app/login')
+    } catch {
+        res.status(500).send('failed to verify!');
+    }
+})
 
 
 
