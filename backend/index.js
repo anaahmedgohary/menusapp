@@ -79,6 +79,39 @@ app.get("/", async (req, res) =>
 
 })
 
+app.get("/confirmed/:token", async (req, res) =>
+{
+    // from ben-awad
+    // const token = req.headers['x-token'];  
+
+    // from kyle
+    // let username = req.username
+
+    try
+    {
+        const user = jwt.verify(req.params.token, EMAIL_SECRET);
+        // const username = await user.username;
+        const email = user
+        console.log(email);
+
+        let updateSql = `UPDATE tester01 SET verified = '1' WHERE username = '${email}'`; // tester01 simptab
+        let query = db.query(updateSql, async (err, results) =>
+        {
+            if (err) throw err;
+            console.log('Updated Verification Status');
+            res.redirect('https://menusapp.vercel.app/login/');
+        });
+
+        // res.redirect('http://exmple.com'+req.url)
+        // res.status(200).send('Updated Verification Status');
+        // res.status(200).redirect('https://menusapp.vercel.app/login')
+        //  console.log('Updated Verification Status 2');
+        // res.redirect('https://menusapp.vercel.app/login/');
+    } catch {
+        res.status(500).send('failed to verify!');
+    }
+})
+
 
 
 // function sendWelcomeEmail(email)

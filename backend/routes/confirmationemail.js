@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const mysql = require('mysql2');
 
 require('dotenv').config();
- const db = mysql.createConnection(process.env.DATABASE_URL);
+const db = mysql.createConnection(process.env.DATABASE_URL);
 
 // local dev
 // const db = mysql.createConnection({
@@ -51,7 +51,11 @@ router.post('/confirmationemails', async (req, res) =>
         const userEmail = req.body.username;
 
         const confirmationToken = jwt.sign(userEmail, EMAIL_SECRET);
-        const url = `https://menusapp.vercel.app/confirmationemail/${confirmationToken}`;
+        //X--X const url = `https://menusapp.vercel.app/confirmationemail/${confirmationToken}`;
+        // damn it was that obvious & still didn't see it https://menusappback.vercel.app
+        const url = `https://menusappback.vercel.app/confirmationemail/${confirmationToken}`;
+        // local
+       // const url = `http://localhost:4000/confirmationemail/${confirmationToken}`;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -103,19 +107,21 @@ router.get('/:token' , async (req, res) =>
         const user = jwt.verify(req.params.token, EMAIL_SECRET);
        // const username = await user.username;
         const email = user
+       // console.log(email);
 
-        let updateSql = `UPDATE simptab SET verified = '1' WHERE username = '${email}'`;
+        let updateSql = `UPDATE simptab SET verified = '1' WHERE username = '${email}'`; // tester01 simptab
         let query = db.query(updateSql, async (err, results) =>
         {
             if (err) throw err;
             console.log('Updated Verification Status');
+            res.redirect('https://menusapp.vercel.app/login/');
         });
 
         // res.redirect('http://exmple.com'+req.url)
        // res.status(200).send('Updated Verification Status');
        // res.status(200).redirect('https://menusapp.vercel.app/login')
-        console.log('Updated Verification Status 2');
-        return res.redirect('https://menusapp.vercel.app/login/');
+      //  console.log('Updated Verification Status 2');
+       // res.redirect('https://menusapp.vercel.app/login/');
     } catch {
         res.status(500).send('failed to verify!');
     }
