@@ -11,6 +11,7 @@
 # production
 /build
 /.vscode
+confirmpass.jsx
 
 # misc
 .DS_Store

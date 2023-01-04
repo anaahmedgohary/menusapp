@@ -17,6 +17,18 @@ export default function RecoverPass()
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    let confirmPass = document.querySelector('#confirmPass');
+
+    function validatePassword()
+    {
+        if (password !== confirmPass.value)
+        {
+            confirmPass.setCustomValidity("Passwords Don't Match");
+        } else
+        {
+            confirmPass.setCustomValidity('');
+        }
+    }
 
 
     const handelSubmit = (e) =>
@@ -69,6 +81,7 @@ export default function RecoverPass()
                 {
                     setUsername('');
                     setPassword('');
+                    confirmPass.value = '';
                     window.alert(`Password was Reset Successfully`);
                     window.location.href = '/login';
                 }
@@ -97,7 +110,7 @@ export default function RecoverPass()
                         <label className="label-signin" htmlFor="email">
                             E-mail
                         </label>
-                        <input name="username" id="username" required value={username}
+                        <input type='email' name="username" id="username" required value={username}
                             onChange={(e) => { setUsername(e.target.value) }} />
                         {/* <label className="label-signin" htmlFor="password">
                             Password
@@ -127,8 +140,11 @@ export default function RecoverPass()
                         <label className="label-signin" htmlFor="password">
                             NEW Password
                         </label>
-                        <input type="text" name="password" id="password" required value={password}
+                        <input type="password" name="password" id="password" required value={password}
                             onChange={(e) => { setPassword(e.target.value) }} />
+                        
+                        <input type="password" id="confirmPass" required onChange={validatePassword} />
+
                         <div>
                             <button
                                 className="submit-btn btn btn-info"

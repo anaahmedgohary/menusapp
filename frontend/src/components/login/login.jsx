@@ -85,12 +85,12 @@ export default function LogIn()
             <label className="label-signin" htmlFor="email">
               E-mail
             </label>
-            <input name="username" id="username" required value={username}
+            <input type="email" name="username" id="username" required value={username}
               onChange={(e) => { setUsername(e.target.value)}} />
             <label className="label-signin" htmlFor="password">
               Password
             </label>
-            <input type="text" name="password" id="password" required value={password}
+            <input type="password" name="password" id="password" required value={password}
               onChange={(e) => { setPassword(e.target.value) }}/>
             <div>
               <button
@@ -106,11 +106,21 @@ export default function LogIn()
           <a
             className="forgot-pass"
             href="/recoverpassword"
-            
+            title="Reset your password"
           >
             forgot password ?
           </a>
+          <div>
+            <a
+              className="forgot-pass"
+              href="/signup"
+              title="Sign Up"
+            >
+              don't have account ?
+            </a>
+          </div>
         </div>
+        
       </div>
 
       {/* <div className='displayNode'>
