@@ -1,15 +1,15 @@
 import axios from "axios";
 import React from 'react';
 import "./style/signup.css";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import $ from 'jquery';
 
 
 
 
 // local
-//const baseURL = "http://localhost:4000";
-const baseURL = "https://menusappback.vercel.app";
+// const baseURL = "http://localhost:4000";
+ const baseURL = "https://menusappback.vercel.app";
 
 
 export default function SignUp()
@@ -28,7 +28,7 @@ export default function SignUp()
       //.then((req, res) =>
       .then((response) =>
       {
-        console.log(response.data);
+       // console.log(response.data);
         if (response.status === 200)
         {
          // axios.post(`${baseURL}/emails/welcome`, { username: username })
@@ -48,7 +48,7 @@ export default function SignUp()
       .catch(error =>
       {
         console.log(error);
-        window.alert("An Error Occuered Please Try Again." + error)
+        window.alert("An Error Occuered Please Try Again.");
       });
 
   }

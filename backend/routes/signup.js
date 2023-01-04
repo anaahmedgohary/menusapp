@@ -45,7 +45,7 @@ router.post('/newuser', async (req, res) =>
         let post = { username, password };
         // let sql = `INSERT INTO simptab SET ?`;
         // local
-        let sql = `INSERT INTO simptab SET ?`;
+        let sql = `INSERT INTO simptab SET ?`; // tester01 simptab
 
         let query = db.query(sql, post);
 
@@ -56,55 +56,35 @@ router.post('/newuser', async (req, res) =>
     }
 })
 
+// old
+// router.post('/adduser', async (req, res) =>
+// {
+//     try
+//     {
+//         const salt = await bcrypt.genSalt();
+//         const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-router.post('/adduser', async (req, res) =>
-{
-    try
-    {
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+//         const body = req.body;
+//         let username = body.username;
+//         let password = hashedPassword;
+//         let post = { username, password };
+//        // let sql = `INSERT INTO simptab SET ?`;
+//         // local
+//         let sql = `INSERT INTO simptab SET ?`;
 
-        const body = req.body;
-        let username = body.username;
-        let password = hashedPassword;
-        let post = { username, password };
-       // let sql = `INSERT INTO simptab SET ?`;
-        // local
-        let sql = `INSERT INTO simptab SET ?`;
+//         let query = db.query(sql, post, (err, result) =>
+//         {
+//             if (err) throw err;
+//             //console.log(result);
 
-        let query = db.query(sql, post, (err, result) =>
-        {
-            if (err) throw err;
-            //console.log(result);
+//             res.send("signup success");
+//             // res.sendFile(__dirname + '/public/thanks.html')
+//         });
 
-            res.send("signup success");
-            // res.sendFile(__dirname + '/public/thanks.html')
-        });
-
-    } catch {
-        res.status(500).send('signup failed!')
-    }
-})
-
-
-
-router.get('/', (req, res) =>
-{
-    res.send('weeeeeeee')
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     } catch {
+//         res.status(500).send('signup failed!')
+//     }
+// })
 
 
 

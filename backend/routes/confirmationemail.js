@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 
@@ -29,15 +29,6 @@ db.connect((err) =>
 });
 
 
-
-router.get('/', (req, res) =>
-{
-    const str = [{
-        "name": "oooooo",
-        
-    }];
-    res.end(JSON.stringify(str));
-});
 
 
 // jsonwebtokens confirmation emails
@@ -68,7 +59,7 @@ router.post('/confirmationemails', async (req, res) =>
             from: 'gogoahmed13@gmail.com',
             to: userEmail,
             subject: 'Confirm Your Email',
-            html: `Thank you ${email} and welcome to city menus app. Please click this Link to Verify your email: <a href="${url}">VERIFY EMAIL</a>`,
+            html: `Thank you ${userEmail} and welcome to city menus app. Please click this Link to Verify your email: <a href="${url}">VERIFY EMAIL</a>`,
         };
         transporter.sendMail(mail_configs, (error, info) =>
         {
@@ -84,8 +75,10 @@ router.post('/confirmationemails', async (req, res) =>
         })
 
 
-    } catch {
-        res.status(500).send("Error Sending Email")
+    } catch (err) {
+        console.log(err);
+        //res.status(500).send();
+        res.sendStatus(500);
     }
     
 })
