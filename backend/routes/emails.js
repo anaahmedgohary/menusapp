@@ -40,7 +40,7 @@ function sendWelcomeEmail(email)
 router.post('/welcome', async (req, res) =>
 {
     const body = req.body;
-    let username = body.username;
+    let username = await body.username;
 
     sendWelcomeEmail(username)
         .then(response => res.send(response.message))
