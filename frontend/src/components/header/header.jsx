@@ -55,12 +55,12 @@ export default function Header() {
           <li>
             <a href="/cafes">Cafes</a>
           </li>
-          <li>
+          {/* <li>
             <a href="/bakeries">Bakeries</a>
           </li>
           <li>
             <a href="/fastfood">Fast Food</a>
-          </li>
+          </li> */}
         </ul>
       </nav>
 

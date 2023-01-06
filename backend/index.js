@@ -5,7 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 // const nodemailer = require('nodemailer');
 // const bcrypt = require('bcrypt');
-
+// const passport = require('passport');
 
 //console.log(process.env) // remove this after you've confirmed it is working
 //console.log(process.env.SSL)
@@ -35,6 +35,8 @@ const signupHandler = require('./routes/signup');
 const emailSender = require('./routes/emails');
 const confirmationEmails = require('./routes/confirmationemail');
 const resetPass = require('./routes/resetpassword');
+// const passportFunc = require('./routes/passportfunc');
+// const runStartPass = require('./routes/passportfunc');
 // const product = require('./api/product');
 
 
@@ -58,6 +60,7 @@ app.use('/login', loginHandler);
 app.use('/confirmationemail', confirmationEmails);
 app.use('/resetpass', resetPass);
 //app.use('/recoverpass', recoverPass);
+// runStartPass(passport);
  
 // app.use("/api/product", product);
 

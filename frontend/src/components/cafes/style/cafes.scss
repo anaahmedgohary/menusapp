@@ -1,0 +1,152 @@
+*{
+    box-sizing: border-box;
+}
+
+$font01: clamp(0.2rem, 1vw, 1.5vw);
+
+@mixin flexCenters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexSpaceAround{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@mixin flexStart {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+@mixin flexEnd {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+$fontClamp01:clamp(0.001rem, 1vw, 2vw);
+$fontClamp02: clamp(0.001rem, 1vw, 2vw);
+$gucciyellow: rgba(189, 147, 2, 1);
+$guccigreen: rgba(10, 106, 86, 1);
+$guccired: rgba(168, 43, 17, 1);
+$guccired01: rgba(168, 43, 17, 0.2);
+
+
+#seachBarDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+.tube-div{
+    margin: auto;
+    @include flexCenters();
+    background-color: antiquewhite;
+    min-width: 60px;
+    width: 40rem;
+    height: clamp(50px,4vw,5vw);
+    text-align: center;
+    //border-bottom-right-radius: 50%;
+    //border-top-right-radius: 50%;
+    border: 1px solid;
+    border-radius: 40px 40px;
+    padding: 0% 0%;
+
+    #searchInput{
+        width: 100%;
+        //height: clamp(12px,2.4vw,3vw);
+        height: 100%;
+        //font-size: $fontClamp02;
+        text-align: center;
+        padding: 0%;
+        margin: 0;
+        border: none;
+        border-radius: 40px 40px;
+        background-color: antiquewhite;
+        overflow: hidden;
+    }
+    #searchIcon{
+        position: relative;
+        left: -94%;
+        display: grid;
+        justify-content: center;
+        justify-content: center;
+        align-items: center;
+        //height: 2rem;
+        //padding-left: 3px;
+        //border-radius: 50%;
+        background-color: transparent;
+        border: none;
+        z-index: 1;
+        margin: auto;
+        width: 0;
+    }
+    #searchLogo{
+        display: flex;
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: white;
+        border: solid lightblue;
+        border-radius: 50%;
+        transform: translateY(-15%);
+    }
+    #searchLogoHand{
+        display: flex;
+        background-color: lightblue;
+        width: 1.1rem;
+        height: 0.17rem;
+        border-radius: 50px 50px;
+        transform: rotate(45deg) translate(39%, -450%) ;
+        overflow: hidden;
+    }
+}
+
+.restaurants-filters{
+    text-decoration: none;
+}
+
+.restaurants-menus{
+    @include flexCenters();
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+    font-size: 2em;
+    border: solid;
+
+
+    .menu-element{
+        margin-bottom: 5%;
+        border-bottom: solid 40px;
+        width: 100%;
+
+        .title{
+            font-size: 2.5rem;
+            font-weight: bold;
+            background-color: gold;
+
+            background-image: repeating-radial-gradient(white, whitesmoke, gold, red);
+            border-radius: 50px;
+            border:solid white;
+        }
+        .img-div{
+            width: 100%;
+
+            .menu-img{
+                width: 100%;
+            }
+        }
+        .ordering-link{
+            font-size: 1.1rem;
+            //margin-bottom: 50px;
+            text-decoration: none;
+            border: solid 2px white;
+            padding: 1rem;
+            border-radius: 6px;
+            color: black;
+            background-color: orange;
+            &:hover{
+                color: white;
+                background-color: green;
+                font-weight: bold;
+            }
+        }
+    }
+}

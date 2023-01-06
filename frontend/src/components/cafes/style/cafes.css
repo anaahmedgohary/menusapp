@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+#seachBarDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tube-div {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  min-width: 60px;
+  width: 40rem;
+  height: clamp(50px, 4vw, 5vw);
+  text-align: center;
+  border: 1px solid;
+  border-radius: 40px 40px;
+  padding: 0% 0%;
+}
+.tube-div #searchInput {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0%;
+  margin: 0;
+  border: none;
+  border-radius: 40px 40px;
+  background-color: antiquewhite;
+  overflow: hidden;
+}
+.tube-div #searchIcon {
+  position: relative;
+  left: -94%;
+  display: grid;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+  margin: auto;
+  width: 0;
+}
+.tube-div #searchLogo {
+  display: flex;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: white;
+  border: solid lightblue;
+  border-radius: 50%;
+  transform: translateY(-15%);
+}
+.tube-div #searchLogoHand {
+  display: flex;
+  background-color: lightblue;
+  width: 1.1rem;
+  height: 0.17rem;
+  border-radius: 50px 50px;
+  transform: rotate(45deg) translate(39%, -450%);
+  overflow: hidden;
+}
+
+.restaurants-filters {
+  text-decoration: none;
+}
+
+.restaurants-menus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  font-size: 2em;
+  border: solid;
+}
+.restaurants-menus .menu-element {
+  margin-bottom: 5%;
+  border-bottom: solid 40px;
+  width: 100%;
+}
+.restaurants-menus .menu-element .title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: gold;
+  background-image: repeating-radial-gradient(white, whitesmoke, gold, red);
+  border-radius: 50px;
+  border: solid white;
+}
+.restaurants-menus .menu-element .img-div {
+  width: 100%;
+}
+.restaurants-menus .menu-element .img-div .menu-img {
+  width: 100%;
+}
+.restaurants-menus .menu-element .ordering-link {
+  font-size: 1.1rem;
+  text-decoration: none;
+  border: solid 2px white;
+  padding: 1rem;
+  border-radius: 6px;
+  color: black;
+  background-color: orange;
+}
+.restaurants-menus .menu-element .ordering-link:hover {
+  color: white;
+  background-color: green;
+  font-weight: bold;
+}/*# sourceMappingURL=cafes.css.map */

@@ -38,14 +38,9 @@ export default function LogIn()
 
     axios
       .post(`${baseURL}/login/authuser`, { username: username, password: password })
-      //.then((req, res) =>
       .then((response) =>
       {
-        //setPost(res.data);
-       // setPost(response.data);
         console.log(response.data);
-        console.log(response);
-        console.log(response.status);
         if (response.status === 200)
         {
           axios.post(`${baseURL}/emails/loginalert`, { username: username })
@@ -65,14 +60,9 @@ export default function LogIn()
         console.log(error);
         window.alert('Incorrect username or password.\ntry again.');
       });
-    
-    
-    // window.location.href = '/';
-    
   }
 
   //if (!backendData) return "No post!";
-  
 
   return (
     <div className="container">
@@ -139,8 +129,6 @@ export default function LogIn()
         <p>{post.password}</p>
         <button onClick={handelSubmit}>Create Post</button>
       </div> */}
-
-
     </div>
   )
 }

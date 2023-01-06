@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import "./style/restaurants.css";
+import "./style/cafes.css";
 // import $ from 'jquery';
 // import TextField from "@mui/material/TextField";
-import restaurantsData from "./restaurantsData.json";
+import cafesData from "./cafesData";
 
-export default function Restaurants()
+export default function CafesComponent()
 {
   const [searchValue, setSearchValue] = useState("");
 
@@ -22,7 +22,7 @@ export default function Restaurants()
   return (
     <div className="container">
       <div>
-        <h2 className="text-center">Menus for Restaurants</h2>
+        <h2 className="text-center">Menus for Cafes</h2>
       </div>
 
       <div id="seachBarDiv">
@@ -48,7 +48,7 @@ export default function Restaurants()
       <section className="restaurants-filters"></section>
 
       <section className="container restaurants-menus">
-        {restaurantsData
+        {cafesData
           .filter((val) => {
             if (searchValue === "") {
               return val;

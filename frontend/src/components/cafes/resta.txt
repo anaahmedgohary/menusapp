@@ -1,0 +1,50 @@
+let restaNames = $(".title");
+  let titles = restaNames;
+  let searchInput = $("#searchInput").val();
+  //let titleText = $(".title").text();
+  console.log(searchInput);
+  //console.log(titles);
+
+  function searchTitles()
+  {
+    console.log(searchInput);
+
+    for (let i = 0; i < titles.length; i++) {
+      var title0 = titles[i];
+      let titleText = title0.text();
+
+      let searchletters = searchInput.split("");
+
+      let parentE = title0.parentElement;
+      if (titleText.indexOf(searchletters) > -1) {
+        parentE.show();
+        console.log("wow");
+      } else {
+        parentE.hide();
+      }
+    }
+  }
+
+  //let newtitles = titles.map();
+
+ ()=>{
+    if(titleText.indexOf(searchletters) > -1){
+        parentE.show();
+  }
+ }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  NoTingNez
