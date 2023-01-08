@@ -45,10 +45,11 @@ export default function SignUp()
         // redirect("/login");
         window.location.href = '/login';
       })
-      .catch(error =>
+      .catch(err =>
       {
-        console.log(error);
-        window.alert("An Error Occuered Please Try Again.");
+        console.log(err);
+        // window.alert("An Error Occuered Please Try Again.");
+        window.alert(err.response.data);
       });
 
   }

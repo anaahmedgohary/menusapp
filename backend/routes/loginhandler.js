@@ -59,13 +59,18 @@ router.post('/authuser', async (req, res) =>
         {
             if (await bcrypt.compare(req.body.password, user.password))
             {
-                console.log('loggin was successful');
-                return res.send('loggin success');
+                loggedinSql = `UPDATE simptab SET loggedin = '1' WHERE username = '${user.username}'`;
+                let loginStat = db.query(loggedinSql, (err, result) =>
+                {
+                    if (err) console.log(err);
+                    console.log('loggin was successful');
+                    return res.send('loggin success');
+                })
                 
             } else
             {
                 console.log('password wrong');
-                return res.status(400).send('password is incorrect');
+                res.status(400).send('password is incorrect');
                // res.send('incorrect email or incorrect password')
             }
         } catch (err)
