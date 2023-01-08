@@ -34,6 +34,22 @@ db.connect((err) =>
 
 router.post('/newuser', async (req, res) =>
 {
+
+    
+    let queryCheck = db.query('SELECT * FROM simptab', async (err, results) =>
+    {
+        if (err) throw err;
+
+        const users = results;
+        const user = await users.find(user => user.username === req.body.username);
+
+        if (user != null)
+        {
+            console.log('user with this email already exist');
+            return res.status(400).send('this email is already used!')
+        }
+    });
+
     try
     {
         const salt = await bcrypt.genSalt();

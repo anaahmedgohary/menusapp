@@ -34,22 +34,6 @@ db.connect((err) =>
 
 
 
-
-router.get('/', (req, res) =>
-{
-    const str = [{
-        "name": "maylam",
-        "locate": "giza"
-    }];
-    res.end(JSON.stringify(str));
-});
-
-router.post("/addmanlam", (req, res) =>
-{
-    res.end('NA')
-});
-
-
 router.post('/authuser', async (req, res) =>
 {
 
@@ -67,24 +51,27 @@ router.post('/authuser', async (req, res) =>
 
         if (user == null)
         {
-            console.log('password wrong');
-            return res.status(400).send('cannot find user')
+            console.log('no user with this email');
+            return res.status(400).send('can not find user with this email!')
         }
 
         try
         {
             if (await bcrypt.compare(req.body.password, user.password))
             {
-                res.send('login is all good')
-                console.log('got z user');
+                console.log('loggin was successful');
+                return res.send('loggin success');
+                
             } else
             {
-                res.status(400).send('password wrong')
-               // res.send('incorrect email or incorrect password')
                 console.log('password wrong');
+                return res.status(400).send('password is incorrect');
+               // res.send('incorrect email or incorrect password')
             }
-        } catch {
-            res.status(500).send('no userconn');
+        } catch (err)
+        {
+            console.log(err);
+            res.status(500).send(err);
         }
 
     })

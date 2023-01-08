@@ -65,13 +65,13 @@ export default function Hompage() {
   return (
     <div className="container">
       <div>
-        <p className="welcom-line">Welcome to Menus Zag!</p>
+        <p className="welcom-line">Welcome to Menus app!</p>
       </div>
       <div className="landing">
         <div className="paragraphs">
           <p>
-            We are proud to provide all the Menus you will ever need in the city
-            of Zagazig. Our database include restaurans, cafes, bakeries and
+            We are proud to provide all the Menus you will ever need in your city
+            . Our database include restaurans, cafes, bakeries and
             fast food menus.
           </p>
           <p></p>
