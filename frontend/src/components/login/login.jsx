@@ -30,9 +30,10 @@ export default function LogIn()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [logStatus, setLogStatus] = useState("loggedout");
 
      
-  const handelSubmit = (e)=>{
+  const handelSubmit = async (e)=>{
     e.preventDefault();
     //const newuser = {username: "llcoolj", password: "icetea"};
 
@@ -48,8 +49,10 @@ export default function LogIn()
             .catch(error => { console.log(error) })
           
           // redirect
-          setUsername('');
-          setPassword('');
+          setLogStatus('loggedin')
+          sessionStorage.setItem('loggedinuser', JSON.stringify(username));
+         // setUsername('');
+         // setPassword('');
           window.alert('Thank you.\n You are now logged in.');
           window.location.href = '/';
         } 

@@ -59,7 +59,7 @@ router.post('/authuser', async (req, res) =>
         {
             if (await bcrypt.compare(req.body.password, user.password))
             {
-                loggedinSql = `UPDATE simptab SET loggedin = '1' WHERE username = '${user.username}'`;
+              let loggedinSql = `UPDATE simptab SET loggedin = '1' WHERE username = '${user.username}'`;
                 let loginStat = db.query(loggedinSql, (err, result) =>
                 {
                     if (err) console.log(err);
@@ -83,8 +83,25 @@ router.post('/authuser', async (req, res) =>
 })
 
 
+// log out
+router.post('/logout', async (req, res) =>
+{
 
+    try
+    {
+        let logoutSql = `UPDATE simptab SET loggedin = '0' WHERE username = '${req.body.username}'`;
+        let loginStat = db.query(logoutSql, (err, result) =>
+        {
+            if (err) console.log(err);
+            console.log('logged out successfully');
+            return res.send('logged out successfully');
+        })
 
+    } catch (err)
+    {
+        console.log(err);
+    }
+})
 
 
 
