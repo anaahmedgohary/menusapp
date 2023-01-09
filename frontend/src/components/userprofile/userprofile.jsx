@@ -10,8 +10,8 @@ export default function UserProfile()
 {
     
     // local
-     const baseURL = "http://localhost:4000";
-   // const baseURL = "https://menusappback.vercel.app";
+    // const baseURL = "http://localhost:4000";
+    const baseURL = "https://menusappback.vercel.app";
     
     let currentUser = JSON.parse(sessionStorage.getItem('loggedinuser'));
     const [email, setEmail] = useState('');

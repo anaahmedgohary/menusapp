@@ -43,12 +43,9 @@ const userInfo = require('./routes/userinfo')
 
 // APPlication start
 const app = express();
-const port = process.env.port || 4000; //
-
-// Requests handelers
-
 app.use(cors());  // CORS allow all Requests
-    // CORS Fix end
+
+const port = process.env.port || 4000; //
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -30,7 +30,7 @@ export default function LogIn()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [logStatus, setLogStatus] = useState("loggedout");
+ // const [logStatus, setLogStatus] = useState("loggedout");
 
      
   const handelSubmit = async (e)=>{
@@ -39,7 +39,7 @@ export default function LogIn()
 
     axios
       .post(`${baseURL}/login/authuser`, { username: username, password: password })
-      .then((response) =>
+      .then(response =>
       {
         console.log(response.data);
         if (response.status === 200)
@@ -49,7 +49,7 @@ export default function LogIn()
             .catch(error => { console.log(error) })
           
           // redirect
-          setLogStatus('loggedin')
+        //  setLogStatus('loggedin')
           sessionStorage.setItem('loggedinuser', JSON.stringify(username));
          // setUsername('');
          // setPassword('');
