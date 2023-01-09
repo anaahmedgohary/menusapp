@@ -13,6 +13,7 @@ import LogIn from "./components/login/login";
 import RecoverPass from "./components/recoverpassword/recoverpass";
 import Restaurants from "./components/restaurants/restaurants";
 import CafesComponent from "./components/cafes/cafes";
+import UserProfile from "./components/userprofile/userprofile";
 // recoverpassword
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/recoverpassword' element={<RecoverPass />} />
         <Route path='/restaurants' element={<Restaurants />} />
         <Route path='/cafes' element={<CafesComponent />} />
+        <Route path='/userprofile' element={<UserProfile />} />
       </Routes>
       <Footer />
     </Router>

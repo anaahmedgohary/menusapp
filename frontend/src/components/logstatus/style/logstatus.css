@@ -1,0 +1,13 @@
+#logs-div {
+  width: 60%;
+  margin-left: auto;
+  padding-block: 10px;
+  display: grid;
+  justify-content: flex-end;
+  gap: 10px;
+  text-align: center;
+}
+
+#logout-div {
+  width: 100%;
+}/*# sourceMappingURL=logstatus.css.map */

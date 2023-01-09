@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import "./style/logstatus.css";
 
 export default function LogStatus(props)
 {
@@ -9,6 +10,11 @@ export default function LogStatus(props)
     useEffect(() =>
     {
         setUsername(currentUser);
+        if (currentUser)
+        {
+            let logoutDiv = document.getElementById('logout-div');
+            logoutDiv.style.display = "block"
+        }
     },[])
     
     
@@ -24,13 +30,13 @@ export default function LogStatus(props)
     const logOutHandeler = async () =>
     {
         axios
-            .post(`${baseURL}/logout`, { username: username })
+            .post(`${baseURL}/login/logout`, { username: currentUser })
             .then((response) =>
             {
                 console.log(response.data);
                 sessionStorage.removeItem('loggedinuser');
                 window.alert(response.data);
-               // window.location.href = '/';
+                window.location.href = '/';
             })
             .catch(err =>
             {
@@ -44,32 +50,24 @@ export default function LogStatus(props)
     return (
         <div className='container'>
 
-            <div className='row d-flex text-center'>
 
-                <div className='col-12 text-center'>
+            <div id='logs-div'>
+                <div>
                     <div>
-                        <a className='btn btn-dark' href="/login" title='login'>Login</a>
-                    </div>
-
-                </div>
-
-                <div className='col-12 d-flex'>
-                    <div className='col-6'>
-                        <div>
-                            <a href="/userprofile" className='btn btn-dark' target="_blank" rel="noopener noreferrer">
-                                {username || "no user loggedin"}
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div className='col-6'>
-                        <div>
-                            <button onClick={logOutHandeler} className='btn btn-dark' title='log out'>Log Out</button>
-                        </div>
+                        <a href="/userprofile" className='btn btn-dark' target="_blank" rel="noopener noreferrer">
+                            {username || "no user loggedin"}
+                        </a>
                     </div>
                 </div>
 
+                <div id='logout-div' style={{display: "none"}}>
+                    <div>
+                        <button onClick={logOutHandeler} className='btn btn-dark' title='log out'>Log Out</button>
+                    </div>
+                </div>
             </div>
+
+          
 
             
 

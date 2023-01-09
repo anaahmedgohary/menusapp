@@ -12,6 +12,7 @@
 /build
 /.vscode
 confirmpass.jsx
+example.js
 
 # misc
 .DS_Store

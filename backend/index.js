@@ -35,6 +35,7 @@ const signupHandler = require('./routes/signup');
 const emailSender = require('./routes/emails');
 const confirmationEmails = require('./routes/confirmationemail');
 const resetPass = require('./routes/resetpassword');
+const userInfo = require('./routes/userinfo')
 // const passportFunc = require('./routes/passportfunc');
 // const runStartPass = require('./routes/passportfunc');
 // const product = require('./api/product');
@@ -59,6 +60,7 @@ app.use('/emails', emailSender);
 app.use('/login', loginHandler);
 app.use('/confirmationemail', confirmationEmails);
 app.use('/resetpass', resetPass);
+app.use('/userinfo', userInfo);
 //app.use('/recoverpass', recoverPass);
 // runStartPass(passport);
  
