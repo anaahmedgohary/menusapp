@@ -54,8 +54,8 @@ export default function LogStatus(props)
             <div id='logs-div'>
                 <div>
                     <div>
-                        <a href="/userprofile" className='btn btn-dark' target="_blank" rel="noopener noreferrer">
-                            {username || "no user loggedin"}
+                        <a href="/userprofile" className='btn btn-dark'>
+                            {username || "Profile"}
                         </a>
                     </div>
                 </div>

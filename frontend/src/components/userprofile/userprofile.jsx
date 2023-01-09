@@ -138,7 +138,7 @@ export default function UserProfile()
 
 
                     <div>
-                        <button id='save-changes' style={{ display: 'none' }} className='col-2'>
+                        <button id='save-changes' onClick={saveUpdateInfo} style={{ display: 'none' }} className='col-2'>
                             Save
                         </button>
                         <button id='cancel-changes-btn' style={{display:'none'}} onClick={cancelChanges}>
