@@ -1,20 +1,33 @@
 const express = require("express");
 const router = express.Router();
-
 const mysql = require('mysql2');
+// encryption
+// const Cryptr = require('cryptr');
+const secret_key = 'QfT2UQMIF4jaHilY2DNvXECSns0tctaI';
+// const cryptr = new Cryptr(secret_key);
+// crypto-js
+const CryptoJS = require("crypto-js");
+
+const dataunderEnc = CryptoJS.AES.encrypt(
+    JSON.stringify('encryptedString'),
+        secret_key
+    ).toString();
+
+
+
 
 require('dotenv').config();
-const db = mysql.createConnection(process.env.DATABASE_URL);
+// const db = mysql.createConnection(process.env.DATABASE_URL);
 //table menususerinfo
 
 // local dev
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'pma',
-//     password: '',
-//     database: 'node24db' //table tester01 menususerinfo
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'pma',
+    password: '',
+    database: 'node24db' //table tester01 menususerinfo
 
-// });
+});
 
 db.connect((err) =>
 {
@@ -25,24 +38,39 @@ db.connect((err) =>
 });
 
 
+// encryption
+router.get('/encrypto', (req, res) =>
+{
+    res.send(dataunderEnc);
+   // res.json(dataunderEnc)
+})
+
 // get user saved info
 router.post('/getinfo', async (req, res) =>
 {
-    const email = req.body.email;
 
     try
     {
-
         let findSql = `SELECT * FROM menususerinfo`;
-        db.query(findSql, async (err, results) =>
+        let query = db.query(findSql, async (err, results) =>
         {
 
             if (err) console.log(err);
-            const user = await results.find((user) => { user.email = req.body.email });
-            console.log(user);
-            res.send(user);
-        })
-        
+            let users = results;
+            // oh wow () and {} do not work with find method
+            const user = await users.find(user => user.email === req.body.email);
+            if (user == null)
+            {
+                return res.sendStatus(401);
+            }
+            const encryptedUser = CryptoJS.AES.encrypt(
+                JSON.stringify(user),
+                secret_key).toString();
+           // console.log(user);
+           // console.log(user.name);
+            return res.send(encryptedUser);
+
+        });
     } catch (e)
     {
         console.log(e)
@@ -54,11 +82,12 @@ router.post('/updateinfo', async (req, res) =>
     const { name, birthday, phone, city, restaurant, email } = await req.body;
 
     let findSql = `SELECT * FROM menususerinfo`;
-    db.query(findSql, async (err, results) =>
+    let query = db.query(findSql, async (err, results) =>
     {
 
         if (err) console.log(err);
-        const user = await results.find((user) => { user.email = req.body.email });
+        // oh wow () and {} do not work with find method
+        const user = await results.find(user => user.email === req.body.email);
 
         if (user == null)
         {
@@ -79,7 +108,7 @@ router.post('/updateinfo', async (req, res) =>
         {
             try
             {
-                let updateSQL = `UPDATE menususerinfo SET name=${name}, birthday=${birthday}, phone=${phone}, city=${city}, restaurant=${restaurant} WHERE email=${email}`;
+                let updateSQL = `UPDATE menususerinfo SET name='${name}', birthday='${birthday}', phone='${phone}', city='${city}', restaurant='${restaurant}' WHERE email='${email}'`;
                 let query = db.query(updateSQL, (err, result) =>
                 {
                     if (err) console.log(err);
@@ -87,7 +116,7 @@ router.post('/updateinfo', async (req, res) =>
                 })
             } catch (e)
             {
-                console.log(e)
+                console.log(e);
             }
         }
     })

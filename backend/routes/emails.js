@@ -22,7 +22,7 @@ function sendWelcomeEmail(email)
             from: 'gogoahmed13@gmail.com',
             to: email,
             subject: 'Welcome Email',
-            text: `Thank you ${email} and welcome to city menus app.`
+            text: `Thank you ${email.split('@').shift() } and welcome to city menus app.`
         };
 
         transporter.sendMail(mail_configs, (error, info) =>
@@ -65,7 +65,7 @@ function newLoginAlert(email)
             from: 'gogoahmed13@gmail.com',
             to: email,
             subject: 'Login Alert',
-            text: `Dear ${email}, we'd like to alert you that there's been a new login to your account.`
+            text: `Dear ${email.split('@').shift()}, we'd like to alert you that there's been a new login to your account.`
         };
 
         transporter.sendMail(mail_configs, (error, info) =>
@@ -109,7 +109,7 @@ function recoverpassword(email)
             from: 'gogoahmed13@gmail.com',
             to: email,
             subject: 'Password Recovery',
-            text: `Thank you ${email} and welcome to city menus app.`
+            text: `Thank you ${email.split('@').shift()} and welcome to city menus app.`
         };
 
         transporter.sendMail(mail_configs, (error, info) =>
@@ -152,7 +152,7 @@ function passChangeReq(email)
             from: 'gogoahmed13@gmail.com',
             to: email,
             subject: 'Password Change Request',
-            text: `Dear ${email}. There was an attempt to change your password.`
+            text: `Dear ${email.split('@').shift()}. There was an attempt to change your password.`
         };
 
         transporter.sendMail(mail_configs, (error, info) =>
@@ -196,7 +196,7 @@ function passwordChanged(email)
             from: 'gogoahmed13@gmail.com',
             to: email,
             subject: 'Your Password Was Changed',
-            text: `Dear ${email}. Your Password Was Changed Successfully.`
+            text: `Dear ${email.split('@').shift()}. Your Password Was Changed Successfully.`
         };
 
         transporter.sendMail(mail_configs, (error, info) =>
