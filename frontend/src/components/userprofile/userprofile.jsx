@@ -55,7 +55,7 @@ export default function UserProfile()
     const secret_key = 'QfT2UQMIF4jaHilY2DNvXECSns0tctaI';
     async function getUserInfo()
     {
-       // const email = await currentUser || null;
+        const email = await currentUser || null;
         axios
             .post(`${baseURL}/userinfo/getinfo`, { email: email })
             .then(async response =>
@@ -64,7 +64,7 @@ export default function UserProfile()
                 if (response.status === 200)
                 {
                     const bytes = CryptoJS.AES.decrypt(response.data, secret_key);
-                    const info = await JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+                    const info =  JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
                     setName(info.name);
                     setBirthday(info.birthday);
