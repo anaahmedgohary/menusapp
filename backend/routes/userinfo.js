@@ -60,15 +60,17 @@ router.post('/getinfo', async (req, res) =>
             const user = await users.find(user => user.email === req.body.email);
             if (user == null)
             {
-                return res.sendStatus(401);
-            }
-            const encryptedUser = CryptoJS.AES.encrypt(
-                JSON.stringify(user),
-                secret_key).toString();
-           // console.log(user);
-           // console.log(user.name);
-            return res.send(encryptedUser);
-
+               // return res.sendStatus(401);
+                res.send('no user here')
+            } else
+            {
+                const encryptedUser = CryptoJS.AES.encrypt(
+                    JSON.stringify(user),
+                    secret_key).toString();
+                // console.log(user);
+                // console.log(user.name);
+                res.send(encryptedUser);
+            }            
         });
     } catch (e)
     {
