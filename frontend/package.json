@@ -25,5 +25,5 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "https://menusappback.vercel.app"
 }
