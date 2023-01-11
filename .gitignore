@@ -19,7 +19,8 @@ packgereactold.txt
 .env.test.local
 .env.production.local
 .env
-/.vscode
+
+.vscode/
 oldwebpack.config.js
 
 npm-debug.log*
