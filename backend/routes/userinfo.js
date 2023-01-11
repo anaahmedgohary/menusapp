@@ -78,7 +78,9 @@ router.post('/getinfo', async (req, res) =>
 
 router.post('/updateinfo', async (req, res) =>
 {
-    const { name, birthday, phone, city, restaurant, email } = await req.body;
+    const body = await req.body;
+
+    const { name, birthday, phone, city, restaurant, email } = body;
 
     let findSql = `SELECT * FROM menususerinfo`;
     let query = db.query(findSql, async (err, results) =>
@@ -92,8 +94,10 @@ router.post('/updateinfo', async (req, res) =>
         {
             try
             {
-                let sql = `INSERT INTO menususerinfo SET ?`
-                let post = { name, birthday, phone, city, restaurant, email };
+                let sql = 'INSERT INTO menususerinfo SET ?'
+                // let post = { name, birthday, phone, city, restaurant, email };
+                let post = { name: name, birthday: birthday, phone: phone, city: city, restaurant: restaurant, email: email };
+
                 let query = db.query(sql, post, (err, result) =>
                 {
                     if (err) console.log(err);
