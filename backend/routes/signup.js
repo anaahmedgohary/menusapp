@@ -35,41 +35,46 @@ db.connect((err) =>
 router.post('/newuser', async (req, res) =>
 {
 
-    
-    let queryCheck = db.query('SELECT * FROM simptab', async (err, results) =>
+    let sql = `SELECT * FROM simptab`
+    let queryCheck = db.query(sql, async (err, results) =>
     {
         if (err) throw err;
 
         const users = results;
         const user = await users.find(user => user.username === req.body.username);
 
-        if (user != null)
+        if (user)
         {
             console.log('user with this email already exist');
             return res.status(400).send('this email is already used!')
+        } else
+        {
+            try
+            {
+                const salt = await bcrypt.genSalt();
+                const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+                const body = req.body;
+                let username = body.username;
+                let password = hashedPassword;
+                let post = { username, password };
+                // let sql = `INSERT INTO simptab SET ?`;
+                // local
+                let sql = `INSERT INTO simptab SET ?`; // tester01 simptab
+
+                let query = db.query(sql, post);
+
+                res.status(200).send("done with new form");
+
+            } catch (e)
+            {
+                console.log(e)
+                // res.status(500).send('no new form')
+            }
         }
     });
 
-    try
-    {
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-        const body = req.body;
-        let username = body.username;
-        let password = hashedPassword;
-        let post = { username, password };
-        // let sql = `INSERT INTO simptab SET ?`;
-        // local
-        let sql = `INSERT INTO simptab SET ?`; // tester01 simptab
-
-        let query = db.query(sql, post);
-
-        res.status(200).send("done with new form");
-
-    } catch {
-        res.status(500).send('no new form')
-    }
+    
 })
 
 // old

@@ -32,13 +32,33 @@ export default function UserProfile()
    // const email = currentUser || null;
     const infoPost = { name, birthday, phone, city, restaurant, email };
 
+    
+    
+    
+    //encryption
+    const [enc, setEnc] = useState('')    
+    // useEffect(() =>
+    // {
+    //     axios.get(`${baseURL}/userinfo/encrypto`)
+    //         .then(async response =>
+    //         {
+    //             const bytes = CryptoJS.AES.decrypt(response.data, secret_key);
+    //             const welll = await JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
+    //             console.log(welll);
+    //             setEnc(welll);
+    //             // cryptr.decrypt(response.data);
+    //         })
+    // }, []);
+
     // get saved info
+    //encryption
+    const secret_key = 'QfT2UQMIF4jaHilY2DNvXECSns0tctaI';
     async function getUserInfo()
     {
-
         const email = await currentUser || null;
         axios
-            .post(`${baseURL}/userinfo/getinfo`, {email: email})
+            .post(`${baseURL}/userinfo/getinfo`, { email: email })
             .then(async response =>
             {
                 //console.log(response.data);
@@ -53,39 +73,14 @@ export default function UserProfile()
                     setCity(info.city);
                     setRestaurant(info.restaurant);
                 }
-
-               // const user = response.data;
-                // setName(user.name);
-                // setBirthday(user.birthday);
-                // setPhone(user.phone);
-                // setCity(user.city);
-                // setRestaurant(user.restaurant);
             })
-
-    }
+    };
     useEffect(() =>
     {
         getUserInfo();
     }, []);
-    //encryption
-    const secret_key = 'QfT2UQMIF4jaHilY2DNvXECSns0tctaI';
-    const [enc, setEnc] = useState('')
-    // const bytes = CryptoJS.AES.decrypt(response.data, secret_key);
-    // const data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-    useEffect(() =>
-    {
-        axios.get(`${baseURL}/userinfo/encrypto`)
-            .then(async response =>
-            {
-                const bytes = CryptoJS.AES.decrypt(response.data, secret_key);
-                const welll = await JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-                console.log(welll);
-                setEnc(welll);
-                // cryptr.decrypt(response.data);
-        })
-    },[])
     // send info save button
     async function saveUpdateInfo(e)
     {
@@ -200,9 +195,9 @@ export default function UserProfile()
           
             
 
-            <div>
+            {/* <div>
                 <h2>{ enc || 'undefined'}</h2>
-        </div>
+        </div> */}
 
 
 

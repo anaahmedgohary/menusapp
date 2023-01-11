@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 
 require('dotenv').config();
-const db = mysql.createConnection(process.env.DATABASE_URL);
+ const db = mysql.createConnection(process.env.DATABASE_URL);
 
 // local dev
 // const db = mysql.createConnection({
@@ -41,8 +41,6 @@ router.post('/authuser', async (req, res) =>
     let query = db.query(sql, async (err, results) =>
     {
         if (err) throw err;
-       // res.send('got z results');
-        console.log('got z results');
         //  res.send(results);
         // console.log(results);
 
@@ -67,16 +65,17 @@ router.post('/authuser', async (req, res) =>
                     return res.send('loggin success');
                 })
                 
-            } else
+            }
+            else
             {
-                console.log('password wrong');
+                console.log('password is wrong');
                 res.status(400).send('password is incorrect');
                // res.send('incorrect email or incorrect password')
             }
-        } catch (err)
+        } catch (e)
         {
-            console.log(err);
-            res.status(500).send(err);
+            console.log(e);
+            res.status(500).send(e);
         }
 
     })

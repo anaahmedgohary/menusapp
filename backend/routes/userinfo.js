@@ -2,32 +2,25 @@ const express = require("express");
 const router = express.Router();
 const mysql = require('mysql2');
 // encryption
-// const Cryptr = require('cryptr');
-const secret_key = 'QfT2UQMIF4jaHilY2DNvXECSns0tctaI';
-// const cryptr = new Cryptr(secret_key);
-// crypto-js
 const CryptoJS = require("crypto-js");
 
-const dataunderEnc = CryptoJS.AES.encrypt(
-    JSON.stringify('encryptedString'),
-        secret_key
-    ).toString();
+
 
 
 
 
 require('dotenv').config();
-// const db = mysql.createConnection(process.env.DATABASE_URL);
+ const db = mysql.createConnection(process.env.DATABASE_URL);
 //table menususerinfo
 
 // local dev
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'pma',
-    password: '',
-    database: 'node24db' //table tester01 menususerinfo
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'pma',
+//     password: '',
+//     database: 'node24db' //table tester01 menususerinfo
 
-});
+// });
 
 db.connect((err) =>
 {
@@ -39,6 +32,11 @@ db.connect((err) =>
 
 
 // encryption
+const secret_key = 'QfT2UQMIF4jaHilY2DNvXECSns0tctaI';
+const dataunderEnc = CryptoJS.AES.encrypt(
+    JSON.stringify('encryptedString'),
+    secret_key
+).toString();
 router.get('/encrypto', (req, res) =>
 {
     res.send(dataunderEnc);
