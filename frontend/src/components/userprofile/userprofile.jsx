@@ -29,7 +29,7 @@ export default function UserProfile()
     const [city, setCity] = useState('');
     const [restaurant, setRestaurant] = useState('');
    // const email = currentUser || null;
-    const infoPost = { name, birthday, phone, city, restaurant, email };
+    // const infoPost = { name, birthday, phone, city, restaurant, email };
 
     
     
@@ -55,7 +55,7 @@ export default function UserProfile()
     const secret_key = 'QfT2UQMIF4jaHilY2DNvXECSns0tctaI';
     async function getUserInfo()
     {
-        const email = await currentUser || null;
+       // const email = await currentUser || null;
         axios
             .post(`${baseURL}/userinfo/getinfo`, { email: email })
             .then(async response =>
@@ -71,8 +71,11 @@ export default function UserProfile()
                     setPhone(info.phone);
                     setCity(info.city);
                     setRestaurant(info.restaurant);
+                } else
+                {
+                    console.log('no user found')
                 }
-            })
+            }).catch(err => console.log(err))
     };
     useEffect(() =>
     {
@@ -81,6 +84,7 @@ export default function UserProfile()
 
 
     // send info save button
+    const infoPost = { name: name, birthday: birthday, phone: phone, city: city, restaurant: restaurant, email: email };
     async function saveUpdateInfo(e)
     {
         
@@ -91,7 +95,7 @@ export default function UserProfile()
                 console.log(response.data);
                 window.alert(response.data);
                 cancelChanges();
-            })
+            }).catch(err => console.log(err))
     }
 
     // for edit info button
