@@ -6,16 +6,16 @@ const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 
 require('dotenv').config();
- const db = mysql.createConnection(process.env.DATABASE_URL);
+//  const db = mysql.createConnection(process.env.DATABASE_URL);
 
 // local dev
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'pma',
-//     password: '',
-//     database: 'node24db' //table tester01
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'pma',
+    password: '',
+    database: 'node24db' //table tester01
 
-// });
+});
 
 
 

@@ -10,17 +10,17 @@ const CryptoJS = require("crypto-js");
 
 
 require('dotenv').config();
- const db = mysql.createConnection(process.env.DATABASE_URL);
+//  const db = mysql.createConnection(process.env.DATABASE_URL);
 //table menususerinfo
 
 // local dev
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'pma',
-//     password: '',
-//     database: 'node24db' //table tester01 menususerinfo
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'pma',
+    password: '',
+    database: 'node24db' //table tester01 menususerinfo
 
-// });
+});
 
 db.connect((err) =>
 {

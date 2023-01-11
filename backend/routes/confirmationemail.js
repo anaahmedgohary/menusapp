@@ -59,7 +59,7 @@ router.post('/confirmationemails', async (req, res) =>
             from: 'gogoahmed13@gmail.com',
             to: userEmail,
             subject: 'Confirm Your Email',
-            html: `Thank you ${userEmail} and welcome to city menus app. Please click this Link to Verify your email: <a href="${url}">VERIFY EMAIL</a>`,
+            html: `Thank you ${userEmail.split('@').shift()} and welcome to city menus app. Please click this Link to Verify your email: <a href="${url}">VERIFY EMAIL</a>`,
         };
         transporter.sendMail(mail_configs, (error, info) =>
         {
