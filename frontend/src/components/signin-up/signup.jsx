@@ -36,22 +36,13 @@ export default function SignUp()
             .then(response =>
             {
               console.log(response.data)
-            })
-           // .catch(error => { console.log(error) })
+            }).catch(error =>  console.log(error))
         };
         // setUsername('');
         // setPassword('');
-       // window.alert('Thank you for signing up.\ncheck your email inbox.');
-        // redirect("/login");
-        // window.location.href = '/login';
-      })
-      .catch(err =>
-      {
-        console.log(err);
-        // window.alert("An Error Occuered Please Try Again.");
-       // window.alert(err.response.data);
-      });
-
+        window.alert('Thank you for signing up.\ncheck your email inbox.');
+        window.location.href = '/login';
+      }).catch(err => console.log(err));
   }
 
   //if (!backendData) return "No post!";
