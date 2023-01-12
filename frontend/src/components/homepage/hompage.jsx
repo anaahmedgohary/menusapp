@@ -169,12 +169,12 @@ export default function Hompage() {
         </div>
 
         <div className='galNavBtn galPrevBtn inmodalDiv'>
-          <button title='PREVIOUS' onClick={prevImgBtn}>
+          <button id='previousButton' title='PREVIOUS' onClick={prevImgBtn}>
             <i className="fa-solid fa-chevron-left fa-3x"></i>
           </button>
         </div>
 
-        <div className="infobar inmodalDiv">
+        {/* <div className="infobar inmodalDiv">
           <span>Name of Menu</span>
 
           <p>
@@ -186,10 +186,10 @@ export default function Hompage() {
             perspiciatis impedit iure, iste facilis natus eius incidunt aliquid
             nisi molestiae explicabo.
           </span>
-        </div>
+        </div> */}
 
         <div className='galNavBtn galnextBtn inmodalDiv'>
-          <button title='NEXT' onClick={nextImgBtn}>
+          <button id='nextButton' title='NEXT' onClick={nextImgBtn}>
             <i className="fa-solid fa-chevron-right fa-3x"></i>
           </button>
         </div>
